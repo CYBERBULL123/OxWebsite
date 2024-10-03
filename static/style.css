@@ -256,3 +256,235 @@ footer p {
         font-size: 1.1em;
     }
 }
+
+/* Gallery section styling */
+.gallery {
+    padding: 40px;
+    text-align: center;
+    background-color: #1d1c1c67;
+    z-index: -1;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 10px;
+    z-index: -1;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.6); /* Initial glowing light */
+    position: relative;
+}
+
+/* Glowing effect behind the image */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px 15px rgba(0, 255, 255, 0.4); /* Soft blue glow */
+    opacity: 0.7;
+    z-index: -1; /* Place behind the image */
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Hover effect: change glow color */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 0, 150, 0.8); /* Pink glow on hover */
+}
+
+.gallery-item:hover::before {
+    box-shadow: 0 0 30px 20px rgba(255, 0, 150, 0.8); /* Change to pink glow */
+}
+
+.gallery-item:hover img {
+    transform: scale(1);
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 1200px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+
+/* Gallery Section */
+.gallery {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Swiper Styles */
+.swiper-container {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling the images */
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 100%; /* Ensures image fits within the slide */
+    border-radius: 15px; /* Rounded corners for images */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Default shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+}
+
+/* Glow Effect */
+.swiper-slide:hover img {
+    transform: scale(1.05); /* Slightly scale the image on hover */
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.6); /* Glowing effect on hover */
+}
+
+/* Swiper Navigation */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff; /* White color for navigation buttons */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Adjust positioning of pagination */
+.swiper-pagination {
+    bottom: 10px; /* Position at the bottom */
+    z-index: 10; /* Make sure it's on top of other elements */
+}
+
+/* Swiper Pagination Bullets */
+.swiper-pagination-bullet {
+    background: #007aff; /* Bullet color */
+    opacity: 0.7; /* Slightly transparent */
+}
+
+.swiper-pagination-bullet-active {
+    background: #007aff; /* Active bullet color */
+    opacity: 1; /* Fully opaque for active bullet */
+}
+
+
+
+/* Full-screen graph chart section */
+.graph-section {
+    padding: 40px;
+    background-color: #1514149e;
+    text-align: center;
+}
+
+#graph-chart {
+    width: 100%;
+    max-width: 1200px; /* Ensure the image doesn't become too large on large screens */
+    margin: 0 auto; /* Center the graph */
+    position: relative;
+    padding: 20px;
+    background-color: #2e2d2d19;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Styling the image inside the graph chart */
+#graph-chart img {
+    width: 100%; /* Ensure the image fills the container */
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+    box-shadow: 0 0 15px rgba(233, 36, 18, 0.848); /* Initial glow effect */
+}
+
+/* Add a glowing effect on hover */
+#graph-chart:hover img {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 0 30px rgba(2, 255, 255, 0.864); /* Green glow on hover */
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    #graph-chart {
+        max-width: 100%; /* Allow the graph to fill smaller screens */
+    }
+}
+
+
+/* Swiper styling */
+.swiper-container {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect for images */
+    transition: transform 0.3s ease-in-out; /* Smooth scaling effect on hover */
+}
+
+/* Scale the images on hover */
+.swiper-slide img:hover {
+    transform: scale(1.05);
+}
+
+/* Style Swiper pagination and navigation */
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-pagination-bullet {
+    background: #00ff00; /* Customize the color of the dots */
+    opacity: 1;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #00ff00; /* Customize the arrow color */
+}

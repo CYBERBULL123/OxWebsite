@@ -111,3 +111,23 @@ document.addEventListener("DOMContentLoaded", function() {
         retina_detect: true,
     });
 });
+
+
+// Initialize Swiper
+var swiper = new Swiper('.swiper-container', {
+    spaceBetween: 30, // Space between slides
+    effect: 'slide', // Effect type (slide, fade, cube, etc.)
+    loop: true, // Infinite loop mode
+    autoplay: {
+        delay: 2500, // Time interval between slides
+        disableOnInteraction: false, // Don't disable autoplay on user interactions
+    },
+    pagination: {
+        el: '.swiper-pagination', // Pagination element
+        clickable: true, // Make pagination bullets clickable
+    },
+    navigation: {
+        nextEl: '.swiper-button-next', // Next button
+        prevEl: '.swiper-button-prev', // Previous button
+    },
+});
