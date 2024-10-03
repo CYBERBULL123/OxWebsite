@@ -5,6 +5,16 @@
     font-family: 'Arial', sans-serif;
 }
 
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Behind other content */
+}
+
+
 body {
     background-color: #000; /* Dark background */
     color: #f5f7fa; /* Light text color for readability */
@@ -93,7 +103,7 @@ li {
 }
 
 .cta {
-    background-color: #1a1a1a;
+    background-color: #1a1a1a64;
     color: white;
     text-align: center;
     padding: 60px 0;
@@ -130,11 +140,11 @@ li {
     margin-bottom: 50px;
     border-radius: 8px;
     padding: 40px; /* Add padding for better spacing */
-    background-color: #1a1a1a; /* Background color for contrast */
+    background-color: #1a1a1a87; /* Background color for contrast */
 }
 
 .feature {
-    background: #2a2a2a; /* Slightly lighter background for features */
+    background: #2a2a2a65; /* Slightly lighter background for features */
     color: #fff; /* White text */
     padding: 20px;
     border-bottom: 2px solid #444;
@@ -164,7 +174,7 @@ li {
 }
 
 .workflow {
-    background-color: #1a1a1a; /* Slightly lighter for contrast */
+    background-color: #1a1a1a5f; /* Slightly lighter for contrast */
     padding: 50px 20px;
     text-align: center;
     border-radius: 10px;
@@ -180,8 +190,8 @@ li {
 .workflow p {
     font-size: 1.2em;
     color: #555; /* Darker text for readability */
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1600px;
+    margin: 50px;
     line-height: 1.7;
 }
 
