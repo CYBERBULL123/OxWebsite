@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #000; /* Dark background */
+    color: #f5f7fa; /* Light text color for readability */
+    line-height: 1.6;
+}
+
+header {
+     position: relative; /* Position for pseudo-element */
+     overflow: hidden; /* Hide overflow to prevent text from spilling */
+     text-align: center;
+}
+
+header::before {
+     content: ""; /* Pseudo-element */
+     position: absolute; /* Absolute positioning */
+     top: 0; /* Align to the top */
+     left: 0; /* Align to the left */
+     right: 0; /* Stretch to the right */
+     bottom: 0; 
+     background: url('https://i.ibb.co/K5GFNW0/logo.jpg') no-repeat center center/cover; /* Background image */
+     filter: blur(10px); /* Blur effect */
+     z-index: 1.5; /* Layer below the text */
+}
+
+header h1, header p {
+     position: relative; /* Position to stack above the pseudo-element */
+     z-index: 2; /* Layer above the blurred background */
+     color: white; /* Text color for contrast */
+ }
+
+header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.cta {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.cta h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.cta a {
+    display: inline-block;
+    background: #ff9900;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    margin-top: 25px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.cta a:hover {
+    background: #e68a00;
+}
+
+.features {
+    display: flex; /* Change to flex for column layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center the items */
+    margin-bottom: 50px;
+}
+
+.feature {
+    width: 100%; /* Use full width */
+    max-width: 600px; /* Set a maximum width for better readability */
+    background: #1a1a1a; /* Dark feature background */
+    color: #fff; /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 20px; /* Add space between features */
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature h3 {
+    font-size: 1.8em;
+    color: #0073e6; /* Accent color for feature titles */
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #ccc; /* Light grey text for description */
+}
+
+
+.workflow {
+    background-color: #1a1a1a; /* Slightly lighter for contrast */
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.workflow h2 {
+    font-size: 2.5em;
+    color: #0073e6; /* Accent color */
+    margin-bottom: 20px;
+}
+
+.workflow p {
+    font-size: 1.2em;
+    color: #555; /* Darker text for readability */
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+footer {
+    background: #333; /* Dark footer */
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .intro h2 {
+        font-size: 2em;
+    }
+
+    .workflow h2 {
+        font-size: 2em;
+    }
+
+    .cta h3 {
+        font-size: 1.7em;
+    }
+
+    .cta a {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+}
