@@ -6,13 +6,14 @@
 }
 
 #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Behind other content */
+    position: fixed; /* Fixed positioning to cover the viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -1; /* Layer below other content */
 }
+
 
 
 body {
@@ -22,28 +23,42 @@ body {
 }
 
 header {
-     position: relative; /* Position for pseudo-element */
-     overflow: hidden; /* Hide overflow to prevent text from spilling */
-     text-align: center;
+    position: relative; /* Set header as relative for absolute positioning of pseudo-element */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow */
+    color: white; /* Text color */
+    z-index: 2; /* Ensure text is above the background */
+    display: flex; /* Flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text */
 }
+
+header h1,
+header p {
+    position: relative; /* Position text for animation */
+    z-index: 5; /* Text above the background */
+    animation: fade 5s infinite; /* Animation for fade in/out */
+}
+
 
 header::before {
-     content: ""; /* Pseudo-element */
-     position: absolute; /* Absolute positioning */
-     top: 0; /* Align to the top */
-     left: 0; /* Align to the left */
-     right: 0; /* Stretch to the right */
-     bottom: 0; 
-     background: url('https://i.ibb.co/K5GFNW0/logo.jpg') no-repeat center center/cover; /* Background image */
-     filter: blur(10px); /* Blur effect */
-     z-index: 1.5; /* Layer below the text */
+    content: ""; /* Pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    bottom: 0; /* Stretch to the bottom */
+    background: url('https://i.ibb.co/FsQV5fn/generated-image-3-1.png') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover the entire header */
+    filter: blur(5px); /* Adjust blur effect */
+    z-index: -1; /* Layer below the text */
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
 }
 
-header h1, header p {
-     position: relative; /* Position to stack above the pseudo-element */
-     z-index: 2; /* Layer above the blurred background */
-     color: white; /* Text color for contrast */
- }
 
 header h1 {
     font-size: 3em;
@@ -54,6 +69,20 @@ header h1 {
 header p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    animation: fade 5s infinite;
+}
+
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0; /* Start and end with transparent */
+    }
+    50% {
+        opacity: 0.5; /* Fade in at halfway */
+    }
+    100% {
+        opacity: 1; /* Fade in at halfway */
+    }
 }
 
 .container {
@@ -190,7 +219,6 @@ li {
 .workflow p {
     font-size: 1.2em;
     color: #555; /* Darker text for readability */
-    max-width: 1600px;
     margin: 50px;
     line-height: 1.7;
 }
@@ -198,7 +226,7 @@ li {
 footer {
     background: #333; /* Dark footer */
     color: white;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
 }
 
