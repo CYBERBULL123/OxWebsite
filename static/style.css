@@ -114,11 +114,13 @@ li {
     margin-top: 25px;
     font-size: 1.2em;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
 }
 
 .cta a:hover {
     background: #e68a00;
+    transform: scale(1.1); /* Enlarge the button slightly */
+    border-radius: 50px;
 }
 
 .features {
