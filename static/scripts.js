@@ -131,20 +131,3 @@ var swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev', // Previous button
     },
 });
-
-
-const images = document.querySelectorAll('.zoomable-image');
-
-images.forEach((img) => {
-    let zoomed = false; // Track if zoomed in or out
-    img.addEventListener('click', () => {
-        if (!zoomed) {
-            img.style.transform = 'scale(2)'; // Zoom in
-            img.style.cursor = 'zoom-out';
-        } else {
-            img.style.transform = 'scale(1)'; // Zoom out
-            img.style.cursor = 'zoom-in';
-        }
-        zoomed = !zoomed; // Toggle zoom state
-    });
-});

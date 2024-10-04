@@ -154,12 +154,53 @@ li {
     font-size: 1.2em;
     border-radius: 8px;
     transition: background 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
+    animation: moveUpDown 1.5s ease-in-out infinite alternate,
+               moveLeftRight 1.5s ease-in-out infinite alternate;
+    position: relative;
 }
 
 .cta a:hover {
     background: #e68a00;
     transform: scale(1.1); /* Enlarge the button slightly */
     border-radius: 50px;
+}
+
+/* Responsive Button */
+.cta-button {
+    background-color: #31303047;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.6);
+}
+
+.cta-button:hover {
+    background-color: #08f1f979;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(255, 34, 0, 0.803);
+}
+
+/* Button Animation */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(10px);
+    }
 }
 
 .features {
