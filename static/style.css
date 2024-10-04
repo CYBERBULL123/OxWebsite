@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: cursive;
 }
 
 #particles-js {
@@ -167,7 +167,7 @@ li {
 
 /* Responsive Button */
 .cta-button {
-    background-color: #31303047;
+    background-color: #3d3a3ab6;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -265,10 +265,11 @@ li {
 }
 
 footer {
-    background: #333; /* Dark footer */
+    background: #3333336b; /* Dark footer */
     color: white;
     padding: 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 footer p {
@@ -523,7 +524,7 @@ footer p {
 }
 
 .feedback-section button:hover {
-    background-color: #e68a00; /* Darker shade on hover */
+    background-color: #e68a00b0; /* Darker shade on hover */
     text-align: center; /* Center text */
 }
 
