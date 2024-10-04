@@ -131,3 +131,9 @@ var swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev', // Previous button
     },
 });
+
+// Optional JavaScript for form handling and feedback
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', function(event) {
+    alert('Thank you for your feedback!');
+});

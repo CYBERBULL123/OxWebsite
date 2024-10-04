@@ -469,3 +469,85 @@ footer p {
 .swiper-button-next, .swiper-button-prev {
     color: #00ff00; /* Customize the arrow color */
 }
+
+.feedback-section {
+    background-color: rgba(255, 255, 255, 0.077); /* Transparent background */
+    padding: 40px; /* Spacing around the section */
+    border-radius: 40px; /* Rounded corners */
+    margin: 20px auto; /* Space between sections and center alignment */
+    box-shadow: 0 4px 15px rgba(139, 132, 132, 0.563); /* Subtle shadow for depth */
+    color: #f5f7fa; /* Light text color */
+    max-width: 600px; /* Limit width of the form container */
+}
+
+.feedback-section h2 {
+    font-size: 2em; /* Heading font size */
+    margin-bottom: 20px; /* Space below heading */
+    color: #ffcc00; /* Highlighted color for headings */
+    text-align: center; /* Center text */
+}
+
+.feedback-section p {
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+.feedback-section .form-group {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+.feedback-section label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space below labels */
+}
+
+.feedback-section input, 
+.feedback-section textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Spacing inside input fields */
+    border-radius: 15px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+    color: #f5f7fa; /* Light text color */
+}
+
+.feedback-section button {
+    margin-top: 10px; /* Space above button */
+    background-color: #32240e88; /* Button color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* No border */
+    border-radius: 25px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor for button */
+    transition: background 0.3s ease; /* Transition for hover effect */
+    align-items: center;
+}
+
+.feedback-section button:hover {
+    background-color: #e68a00; /* Darker shade on hover */
+    text-align: center; /* Center text */
+}
+
+.contact-info {
+    margin-top: 20px; /* Space above contact info */
+    color: #f5f7fa; /* Light text color */
+}
+
+.contact-info a {
+    color: #ffcc00; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .feedback-section {
+        padding: 40px; /* Less padding on smaller screens */
+    }
+
+    .feedback-section h2 {
+        font-size: 1.5em; /* Smaller headings */
+    }
+}
