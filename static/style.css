@@ -499,11 +499,11 @@ footer p {
 }
 
 .feedback-section {
-    background-color: rgba(255, 255, 255, 0.077); /* Transparent background */
+    background-color: rgba(19, 19, 19, 0.575); /* Transparent background */
     padding: 40px; /* Spacing around the section */
     border-radius: 40px; /* Rounded corners */
     margin: 20px auto; /* Space between sections and center alignment */
-    box-shadow: 0 4px 15px rgba(139, 132, 132, 0.563); /* Subtle shadow for depth */
+    box-shadow: 5px 4px 15px rgba(139, 132, 132, 0.563); /* Subtle shadow for depth */
     color: #f5f7fa; /* Light text color */
     max-width: 600px; /* Limit width of the form container */
 }
@@ -551,7 +551,7 @@ footer p {
 }
 
 .feedback-section button:hover {
-    background-color: #e68a00b0; /* Darker shade on hover */
+    background-color: #08f1f979; /* Darker shade on hover */
     text-align: center; /* Center text */
 }
 
