@@ -20,7 +20,7 @@ In today’s digital landscape, the necessity for robust cybersecurity solutions
 3. **Comprehensive Toolset ⚙️**: A wide range of functionalities is essential to cover various aspects of cybersecurity, from network analysis to file inspection and vulnerability assessment.
 
 
-4.** User Engagement 👥**: Creating an interactive and engaging user experience that fosters continuous learning and exploration in cybersecurity.
+4. **User Engagement 👥**: Creating an interactive and engaging user experience that fosters continuous learning and exploration in cybersecurity.
 
 
 ---
@@ -30,13 +30,13 @@ In today’s digital landscape, the necessity for robust cybersecurity solutions
 1. ***OxIntell 🧠*** - A deep dive into cybersecurity topics with a focus on secure coding principles, code analysis, and CVE information.
 
 
-2.***OxRAG 🐂*** - An advanced Retrieval-Augmented Generation (RAG) tool that extracts and analyzes text from various file types, enhancing information retrieval with the Gemini LLM.
+2. ***OxRAG 🐂*** - An advanced Retrieval-Augmented Generation (RAG) tool that extracts and analyzes text from various file types, enhancing information retrieval with the Gemini LLM.
 
 
 3. ***OxImaGen 🖼️*** - A creative AI tool that generates high-quality images and storytelling content, integrating user-defined parameters for tailored outputs.
 
 
-4. ***OxScanner🔎 ***- A powerful cybersecurity tool for network security analysis, offering functionalities like network scanning, packet sniffing, and attack simulations.
+4. ***OxScanner🔎***- A powerful cybersecurity tool for network security analysis, offering functionalities like network scanning, packet sniffing, and attack simulations.
 
 
 
@@ -75,7 +75,7 @@ OxSuite addresses key challenges in cybersecurity:
 
 ***OxSuite*** is built on a robust architecture that leverages the latest technologies:
 
-1. ***Programming Languages*"":
+1. ***Programming Languages***:
 
 **Python**: The backbone of all functionalities, ensuring reliability and scalability.
 
@@ -83,7 +83,7 @@ OxSuite addresses key challenges in cybersecurity:
 
 
 
-***2. Frameworks***:
+2. ***Frameworks***:
 
 **Streamlit**: Provides an interactive platform for deploying machine learning and AI tools.
 
