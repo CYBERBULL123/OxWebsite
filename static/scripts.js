@@ -140,20 +140,20 @@ form.addEventListener('submit', function(event) {
 
 
 // Get modal elements
-var modal = document.getElementById("imageModal");
-var img = document.getElementById("workflow-arch-img");
-var modalImg = document.getElementById("modalImg");
-var captionText = document.getElementById("caption");
-var span = document.getElementsByClassName("close")[0];
+// var modal = document.getElementById("imageModal");
+// var img = document.getElementById("workflow-arch-img");
+// var modalImg = document.getElementById("modalImg");
+// var captionText = document.getElementById("caption");
+// var span = document.getElementsByClassName("close")[0];
 
-// Image click opens modal
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-}
+// // Image click opens modal
+// img.onclick = function(){
+//     modal.style.display = "block";
+//     modalImg.src = this.src;
+//     captionText.innerHTML = this.alt;
+// }
 
-// Close modal when clicking 'X'
-span.onclick = function() {
-    modal.style.display = "none";
-}
+// // Close modal when clicking 'X'
+// span.onclick = function() {
+//     modal.style.display = "none";
+// }
