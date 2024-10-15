@@ -270,6 +270,7 @@ li {
     font-size: 0.9em; /* Smaller font for the list */
 }
 
+/* Workflow Section Styling */
 .workflow {
     background-color: #1a1a1a5f; /* Slightly lighter for contrast */
     padding: 50px 20px;
@@ -278,18 +279,90 @@ li {
     margin-bottom: 50px;
 }
 
+/* Workflow Section Heading */
 .workflow h2 {
     font-size: 2.5em;
     color: #0073e6; /* Accent color */
     margin-bottom: 20px;
 }
 
+/* Workflow Section Paragraph */
 .workflow p {
     font-size: 1.2em;
     color: #555; /* Darker text for readability */
-    margin: 50px;
+    margin: 20px 0; /* Margin for better spacing between paragraphs */
     line-height: 1.7;
 }
+
+/* Workflow Container for Text and Image */
+.workflow-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Add gap for better spacing */
+    margin-top: 30px;
+}
+
+/* Left Column: Text Content */
+.workflow-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+/* Right Column: Image */
+.workflow-image {
+    flex: 1;
+    text-align: center;
+    margin: 20px auto; /* Centers the image column within the container */
+}
+
+/* Image Styling with Hover Zoom */
+.workflow-image img {
+    max-width: 90%; /* Limits image size for better spacing */
+    height: auto;
+    cursor: pointer;
+    border: 1px solid #1d1b1b;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.84);
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image itself */
+    margin-top: 30px; /* Adds margin to space the image from the header */
+}
+
+/* Hover effect for image */
+.workflow-image img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.8); /* Enhance shadow on hover */
+}
+
+/* Modal Image Styles */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+
+/* Media Query for Responsiveness */
+@media (max-width: 1600px) {
+    .workflow-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .workflow-text, .workflow-image {
+        padding: 0;
+    }
+
+    .workflow p {
+        margin: 20px;
+    }
+}
+
 
 footer {
     background: #3333336b; /* Dark footer */

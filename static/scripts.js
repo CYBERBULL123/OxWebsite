@@ -137,3 +137,23 @@ const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(event) {
     alert('Thank you for your feedback!');
 });
+
+
+// Get modal elements
+var modal = document.getElementById("imageModal");
+var img = document.getElementById("workflow-arch-img");
+var modalImg = document.getElementById("modalImg");
+var captionText = document.getElementById("caption");
+var span = document.getElementsByClassName("close")[0];
+
+// Image click opens modal
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Close modal when clicking 'X'
+span.onclick = function() {
+    modal.style.display = "none";
+}
