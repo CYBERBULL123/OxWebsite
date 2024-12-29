@@ -6,7 +6,7 @@
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    gtag('js', new Date()); 
 
     gtag('config', 'G-TYDG6RKQ6G');
     </script>
@@ -22,7 +22,11 @@
     <!-- Your custom JavaScript code (make sure this is included after Swiper) -->
     <script src="static/scripts.js"></script>
 
-    
+     <!-- Including Three.js and Animation Libraries -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.1.5/ScrollTrigger.min.js"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
@@ -36,13 +40,14 @@
         <h1>OxSecure Suite 🛡️</h1>
         <p>🌐 Revolutionizing Cybersecurity with AI-driven Tools</p>
         <p>🔑<strong>For Testing :</strong> 👤 <strong>User:</strong> <em>test</em>, 🛡️ <strong>Pass:</strong> <em>test@1234</em></p>
+        <!-- <canvas id="logo-3d" width="200" height="200"></canvas> -->
         <a href="https://oxsuite.streamlit.app/" target="_blank" class="cta-button">Launch MVP 🚀</a> <!-- New button to launch the MVP -->
     </header>
 
     <!-- Introduction Section -->
     <section class="intro container">
         <h2>🚀 Empowering the Future of Cybersecurity</h2>
-        <p>After extensive coding, research, and development, OxSecure Suite offers three cutting-edge apps that enhance cybersecurity, automate file analysis, and create AI-driven creative content. Developed using state-of-the-art AI and ML models, the suite helps tech individuals secure their software like never before. 💻🔒</p>
+        <p>After extensive coding, research, and development, OxSecure Suite offers four cutting-edge apps that enhance cybersecurity, automate file analysis, and create AI-driven creative content. Developed using state-of-the-art AI and ML models, the suite helps tech individuals secure their software like never before. 💻🔒</p>
     </section>
     
     <!-- Call to Action -->
@@ -54,131 +59,55 @@
 
     <section class="features container">
         <div class="feature">
-            <div id="particles-js"></div>
-            <h3>OxInteLL 🧠 - CyberSec Intelligence 🔐</h3>
-            <p><strong>Overview:</strong><br>
-              <em>OxInteLL</em> is an AI-powered intelligence tool designed to help developers and businesses stay ahead of the cybersecurity landscape. This tool provides real-time insights, secure code reviews, and vulnerability assessments, enabling users to mitigate security threats before they escalate. 🛡️</p>
-          
+            <h3>OxInteLL 🧠 - CyberSec Intelligence</h3>
+            <p><strong>Overview:</strong> OxInteLL is an AI-powered cybersecurity tool that delivers real-time insights, secure code reviews, and vulnerability assessments to mitigate risks effectively. 🛡️</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-              <li>🧑‍💻 <strong>Secure Code Analysis:</strong><br>
-                Automatically scans code for vulnerabilities, misconfigurations, and adherence to best security practices. It provides detailed feedback, helping developers ensure secure coding standards are met. 👨‍💻🔍
-              </li>
-              <li>🤖 <strong>AI-driven Knowledge Base:</strong><br>
-                A growing database of cybersecurity trends, risks, and solutions powered by machine learning, delivering the latest intelligence in the field. It helps users stay informed and proactive. 📚🔐
-              </li>
-              <li>🔍 <strong>Security Scans:</strong><br>
-                A <strong>powerful and comprehensive scanning suite</strong> integrated with <strong>VirusTotal</strong> and other leading security platforms. It provides <strong>deep file vulnerability scans</strong> 🗂️, <strong>in-depth log analysis</strong> 📉, <strong>robust domain analysis</strong>🔗, and <strong>CVE analysis</strong> to identify known vulnerabilities in your systems, helping mitigate risks 📋.
-              </li>
-              
-              <li>🖼️ <strong>Gemini LLM Integration:</strong><br>
-                Analyzes images and files for potential threats, integrating with VirusTotal for a multi-layered defense mechanism. It can detect harmful content, malware, and phishing attempts. 🧠🔍
-              </li>
+                <li>🧑‍💻 <strong>Secure Code Analysis:</strong> Detect vulnerabilities and misconfigurations with actionable feedback for secure development.</li>
+                <li>🤖 <strong>AI Knowledge Base:</strong> Stay ahead with insights on cybersecurity trends, risks, and solutions.</li>
+                <li>🔍 <strong>Comprehensive Scans:</strong> Deep file analysis with VirusTotal integration and detailed CVE insights.</li>
             </ul>
-          
-            <p><strong>Target Users:</strong><br>
-              Software developers, security analysts, and enterprises seeking comprehensive security intelligence, code reviews, and in-depth vulnerability assessments. 🧑‍💻📊</p>
-          
-            <p><strong>How it Stands Out:</strong><br>
-              OxInteLL not only detects security vulnerabilities but also provides educational insights on how to fix them. This proactive approach helps reduce security debt and ensures more secure development practices, making it an ideal solution for large-scale applications. 💡⚙️</p>
-          </div>
-          
-
-        <div class="feature">
-            <div id="particles-js"></div>
-            <h3>OxRAG 🤿 - AI File Analyzer 🐂</h3>
-            <p><strong>Overview:</strong><br> 
-            <em>OxRAG (Retrieve, Analyze, Generate)</em> is a versatile AI tool that allows users to upload files of any type and get detailed analysis results. From documents to images and code, OxRAG extracts useful information, detects hidden risks, and generates meaningful insights.</p>
-
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>📁 <strong>Multi-file Analysis:</strong><br>
-                    Supports a wide range of file types (PDF, DOCX, images, code files, etc.) and provides comprehensive analysis for each.
-                </li>
-                <li>🧠 <strong>AI-Powered Insights:</strong><br>
-                    Uses FAISS vector database and Gemini LLM to extract key insights, summarize long documents, and generate action points based on the file's content.
-                </li>
-                <li>🎤 <strong>Voice Integration:</strong><br>
-                    Offers voice input and output functionality, allowing users to interact with the platform using natural language commands, making it more accessible.
-                </li>
-                <li>🚀 <strong>High-speed Processing:</strong><br>
-                    Designed to handle large files quickly, OxRAG delivers results in seconds, making it ideal for time-sensitive operations.
-                </li>
-                <li>❓ <strong>Interactive Q/A Feature:</strong><br>
-                    Upload any file or provide a URL, and you can chat directly with the AI to ask questions and receive insightful answers. OxRAG intelligently processes the data and offers detailed, context-aware responses. Perfect for analyzing reports, documents, and research files on the go! 🧑‍💻📑
-                </li>
-            </ul>
-
-            <p><strong>Target Users:</strong><br> 
-            IT administrators, security analysts, researchers, and legal professionals who deal with a variety of files and require advanced AI-powered analysis.</p>
-            
-            <p><strong>How it Stands Out:</strong><br> 
-            OxRAG’s versatility in analyzing various types of files and its AI-driven insights make it more than just a scanner. It acts as a smart assistant, capable of delivering context-specific insights based on the files users upload.</p>
+            <p><strong>Target Users:</strong> Developers, security analysts, and enterprises seeking robust cybersecurity solutions.</p>
         </div>
-
+    
         <div class="feature">
-            <div id="particles-js"></div>
-            <h3>OxImaGen 🎨 - Creativity & Image Generation 🖼️</h3>
-            <p><strong>Overview:</strong><br> 
-            <em>OxImaGen</em> is an innovative tool for generating high-quality AI-driven images and creative content. Whether you're a content creator or a digital marketer, OxImaGen helps you create stunning visuals with minimal effort, all powered by cutting-edge AI technologies.</p>
-            
+            <h3>OxRAG 🤿 - AI File Analyzer</h3>
+            <p><strong>Overview:</strong> OxRAG analyzes diverse file types, offering AI-powered insights and actionable data for various professional needs.</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>🎨 <strong>AI Image Generation:</strong><br>
-                    OxImaGen generates high-quality images using a wide variety of filters, themes, and art styles based on simple text prompts. It offers immense customization, allowing you to create detailed images that suit your creative vision.
-                </li>
-                <li>🖼️ <strong>AI Story Generation from Images:</strong><br>
-                    After generating an image, you can automatically create a story based on that image. OxImaGen uses AI to craft engaging stories that complement the visuals, perfect for multimedia storytelling. 📖✨
-                </li>
-                <li>🎧 <strong>Text-to-Speech Integration:</strong><br>
-                    OxImaGen can convert the generated stories into high-quality audio, allowing users to listen to the content as audiobooks, podcasts, or just for fun. 🗣️🔊
-                </li>
-                <li>🌐 <strong>Regional Language Conversion:</strong><br>
-                    If you'd like to convert your generated story into your regional language, OxImaGen supports multilingual speech conversion, making your content accessible in various languages. 🌏💬
-                </li>
+                <li>📁 <strong>Multi-file Support:</strong> Analyze PDFs, DOCX, images, and code with ease.</li>
+                <li>🧠 <strong>AI Insights:</strong> Summarize documents and extract critical points instantly.</li>
+                <li>❓ <strong>Interactive Q/A:</strong> Chat with AI for context-aware answers based on uploaded data.</li>
+                <li>🚀 <strong>High-speed Processing:</strong> Get results in seconds, ensuring efficiency.</li>
             </ul>
-            
-            <p><strong>Target Users:</strong><br> 
-            Digital marketers, graphic designers, content creators, social media influencers, and anyone interested in AI-generated visuals and storytelling.</p>
-            
-            <p><strong>How it Stands Out:</strong><br> 
-            OxImaGen’s ability to generate both images and stories, combined with its video and audio features, makes it a one-stop solution for creative projects. Its high-quality outputs ensure that users can generate professional-level content without any design expertise.</p>
+            <p><strong>Target Users:</strong> IT admins, researchers, and professionals needing advanced file analysis.</p>
         </div>
-
+    
         <div class="feature">
-            <div id="particles-js"></div>
-            <h3>OxScanner 🚀 - NetSec & Troubleshooting Tool 🔍</h3>
-            <p><strong>Overview:</strong><br>
-              <em>OxScanner</em> is a cutting-edge cybersecurity tool designed to provide comprehensive network security analysis and troubleshooting. Whether you're a cybersecurity professional, developer, or enthusiast, It delivers a feature-packed, user-friendly interface. currently in <em>beta</em> and actively evolving. 🚧
-            </p>
-          
+            <h3>OxImaGen 🎨 - AI Creativity Suite</h3>
+            <p><strong>Overview:</strong> OxImaGen generates high-quality visuals and stories with AI, catering to content creators and marketers.</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-              <li>🔍 <strong>Network Scanning:</strong><br>
-                Perform deep scans to identify active hosts, open ports, running services. This feature also captures and analyzes wireless packets and supports DNS, mDNS, and IKE scanning, making it an all-in-one solution for network diagnostics and vulnerability analysis. 🌐📡
-              </li>
-              <li>💣 <strong>ARP Spoofing & MitM Attacks:</strong><br>
-                Execute ARP cache poisoning and man-in-the-middle (MitM) attacks to test for vulnerabilities in a controlled environment. Ideal for penetration testing and network hardening. 🛡️⚔️
-              </li>
-              <li>🛣️ <strong>Advanced Traceroute Functionality:</strong><br>
-                Run traceroutes using TCP SYN, UDP, and DNS packets to trace network paths, identify bottlenecks, and troubleshoot connection issues. This helps with precise diagnostics across multiple network layers. 🛤️🌍
-              </li>
-              <li>🛠️ <strong>Classic Network Attacks:</strong><br>
-                Simulate traditional network attacks (like DoS) for security testing, allowing you to measure the resilience of your network defenses. 💥🔐
-              </li>
+                <li>🎨 <strong>Image Generation:</strong> Create stunning visuals from simple text prompts.</li>
+                <li>📖 <strong>Story Generation:</strong> Craft engaging stories from generated images.</li>
+                <li>🌐 <strong>Multilingual Support:</strong> Convert content into regional languages with ease.</li>
             </ul>
-          
-            <p><strong>Target Users:</strong><br>
-            Cybersecurity professionals, Network administrators, Developers, Educators and students in the field of network security and ethical hacking.</p>
-            
-          
-            <p><strong>How It Stands Out:</strong><br>
-              OxScanner offers a unique blend of classic network security features combined with advanced scanning and attack functionalities. Unlike most tools, it provides a highly intuitive interface, making complex network diagnostics easy even for those without deep technical expertise.
-            </p>
-          
-          </div>
-          
+            <p><strong>Target Users:</strong> Designers, marketers, and influencers seeking AI-driven creative tools.</p>
+        </div>
+    
+        <div class="feature">
+            <h3>OxScanner 🚀 - Network Security Tool</h3>
+            <p><strong>Overview:</strong> OxScanner offers comprehensive network analysis and security testing tools for professionals.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>🔍 <strong>Network Scans:</strong> Identify hosts, open ports, and vulnerabilities efficiently.</li>
+                <li>💣 <strong>Simulated Attacks:</strong> Perform ARP spoofing and MitM attacks in a controlled environment.</li>
+                <li>🛠️ <strong>Advanced Diagnostics:</strong> Trace network paths and troubleshoot with precision.</li>
+            </ul>
+            <p><strong>Target Users:</strong> Cybersecurity experts, network admins, and ethical hackers.</p>
+        </div>
     </section>
+    
     <section class="gallery">
         <h3>🖼️ OxSecure Suite Gallery</h3>
         <div class="gallery-container">
@@ -308,5 +237,6 @@
     </footer>
 
     <script src="static/scripts.js"></script> <!-- Link to external JavaScript -->
+    <!-- <script src="static/test.js"></script> -->
 </body>
 </html>
