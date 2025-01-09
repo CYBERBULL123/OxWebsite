@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pandey - Cybersecurity Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    
+    <style>
+        :root {
+        --matrix-green: #00ff00;
+        --dark-green: #003300;
+        --light-green: #39ff14;
+        --terminal-black: #000000;
+        --glow-effect: 0 0 10px var(--matrix-green);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Courier New', monospace;
+        z-index: 0;
+    }
+
+    body {
+        background-color: transparent;
+        color: var(--matrix-green);
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: var(--terminal-black);
+    }
+
+    @keyframes matrix-rain {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 0% 100%; }
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.03) 0px,
+            rgba(0, 255, 0, 0.03) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+        pointer-events: none;
+        z-index: 1;
+        animation: scanline 10s linear infinite;
+    }
+
+    @keyframes scanline {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(100px); }
+    }
+
+    .container {
+        margin: 30px auto;
+        background: rgba(0, 0, 0, 0);
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid var(--matrix-green);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0);
+        position: relative;
+        z-index: 1;
+        transform: translateZ(50px);
+        backdrop-filter: blur(3px);
+    }
+
+    .terminal-header {
+        background: rgba(0, 17, 0, 0);
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border: 1px solid var(--matrix-green);
+        position: relative;
+    }
+
+    .terminal-header::before {
+        content: "$ ./initialize_profile.sh";
+        display: block;
+        color: var(--light-green);
+        margin-bottom: 10px;
+        font-weight: bold;
+        animation: typing 3s steps(30, end);
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    h1, h2, h3 {
+        color: var(--light-green);
+        text-shadow: 0 0 5px var(--matrix-green);
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        border-bottom: 2px solid var(--matrix-green);
+        padding-bottom: 10px;
+        margin: 30px 0 20px;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--matrix-green);
+        box-shadow: 0 0 10px var(--matrix-green);
+    }
+
+    .project-card, .skill-category, .experience-item {
+        background: rgba(0, 17, 0, 0);
+        border: 1px solid var(--matrix-green);
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        transform: translateZ(30px);
+    }
+
+    .project-card::before, .skill-category::before, .experience-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    .project-card:hover, .skill-category:hover, .experience-item:hover {
+        transform: translateY(-3px) translateZ(30px);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    }
+
+    .project-card:hover::before, .skill-category:hover::before, .experience-item:hover::before {
+        opacity: 0.1;
+    }
+
+    .tech-tag {
+        background: rgba(0, 51, 0, 0.04);
+        color: var(--light-green);
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: 1px solid var(--matrix-green);
+        margin: 5px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+
+    .tech-tag:hover {
+        background: var(--dark-green);
+        box-shadow: 0 0 10px var(--matrix-green);
+    }
+
+    .skill-list li {
+        margin: 10px 0;
+        padding-left: 20px;
+        position: relative;
+        transition: all 0.3s;
+    }
+
+    .skill-list li::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+        color: var(--light-green);
+        opacity: 0.8;
+        transition: all 0.3s;
+    }
+
+    .skill-list li:hover::before {
+        color: var(--matrix-green);
+        transform: translateX(5px);
+        text-shadow: 0 0 5px var(--matrix-green);
+    }
+
+    a {
+        color: var(--light-green);
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s;
+    }
+
+    a:hover {
+        color: var(--matrix-green);
+        text-shadow: 0 0 5px var(--matrix-green);
+    }
+
+
+    a:hover::before, a:hover::after {
+        opacity: 1;
+    }
+
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border-radius: 3px;
+        transition: all 0.3s;
+        border: 1px solid transparent;
+    }
+
+    .contact-item:hover {
+        border-color: var(--matrix-green);
+        background: rgba(0, 255, 0, 0.1);
+        transform: translateX(5px);
+    }
+
+    .contact-item i {
+        color: var(--light-green);
+        width: 20px;
+        text-shadow: 0 0 5px var(--matrix-green);
+    }
+
+    @media print {
+        body::after {
+            display: none;
+        }
+        #particles-js {
+            display: none;
+        }
+        .container {
+            box-shadow: none;
+        }
+    }
+    @media (max-width: 1200px) {
+            .container {
+                padding: 15px;
+            }
+    
+            header, section, footer {
+                padding: 15px;
+            }
+    
+            h1, h2, h3 {
+                font-size: 1.5rem;
+            }
+    
+            p {
+                font-size: 0.9rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <!-- Previous HTML content remains the same -->
+         <header class="terminal-header">
+        <h1><i class="fas fa-terminal"></i> Aditya Pandey</h1>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Uttar Pradesh, India</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:opaadi98@gmail.com">opaadi98@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+91 9696384694</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://linkedin.com/in/aditya-pandey-896109224" target="_blank">LinkedIn</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/CYBERBULL123" target="_blank">GitHub</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <a href="https://aadi-web-1.onrender.com" target="_blank">Portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2><i class="fas fa-user-shield"></i> Cybersecurity Profile</h2>
+        <p>Cybersecurity researcher and AI developer with expertise in ethical hacking, SOC operations, and cutting-edge AI-driven security solutions. Demonstrated success in developing innovative platforms that merge advanced cybersecurity practices with artificial intelligence, particularly in areas of threat detection, automated vulnerability assessment, and intelligent security response systems.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-tools"></i> Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-shield-alt"></i> Security Operations</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i>Advanced Penetration Testing (Metasploit, Nessus)</li>
+                    <li><i class="fas fa-check"></i>Network Analysis & Packet Inspection</li>
+                    <li><i class="fas fa-check"></i>SIEM Implementation (Splunk, QRadar)</li>
+                    <li><i class="fas fa-check"></i>Threat Detection & Incident Response</li>
+                    <li><i class="fas fa-check"></i>Vulnerability Assessment & Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> AI/ML Operations</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i>Large Language Models & Fine-tuning</li>
+                    <li><i class="fas fa-check"></i>Neural Network Architecture Design</li>
+                    <li><i class="fas fa-check"></i>Advanced Reasoning Systems (CoT, ToT)</li>
+                    <li><i class="fas fa-check"></i>NLP & Text Analysis Systems</li>
+                    <li><i class="fas fa-check"></i>AI Security Framework Development</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Infra & DevOps</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i>Cloud Security (AWS, GCP)</li>
+                    <li><i class="fas fa-check"></i>Container Orchestration (Docker, K8s)</li>
+                    <li><i class="fas fa-check"></i>CI/CD Pipeline Security</li>
+                    <li><i class="fas fa-check"></i>Infrastructure as Code (Terraform)</li>
+                    <li><i class="fas fa-check"></i>Security Automation & Monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        <div class="experience-item">
+            <h3>System Administrator & Security Specialist</h3>
+            <p><strong>Invedus Outsourcing | Noida | April 2023 – September 2023</strong></p>
+            <ul class="skill-list">
+                <li>Orchestrated comprehensive penetration testing operations, successfully identifying and mitigating 85% of critical vulnerabilities using advanced tools like Metasploit and Nessus</li>
+                <li>SOC analysis for 100+ security incidents annually, implementing automated response protocols that reduced threat resolution time by 45%</li>
+                <li>Architected and deployed robust endpoint protection solutions, resulting in a 50% reduction in security incidents</li>
+                <li>Developed and implemented security awareness training programs, improving organizational security posture by 60%</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-project-diagram"></i> Advanced Security Projects</h2>
+    
+        <div class="project-card">
+            <h3><i class="fas fa-file-code"></i> VAPT Report Generator</h3>
+            <p>Revolutionary AI-powered vulnerability assessment and penetration testing automation platform.</p>
+            <ul>
+                <li>Engineered an advanced LLM implementation utilizing Chain-of-Thought and Tree-of-Thought methodologies for precise vulnerability analysis</li>
+                <li>Developed intelligent severity assessment algorithms achieving 95% accuracy in vulnerability classification</li>
+                <li>Implemented automated remediation suggestion system with context-aware security recommendations</li>
+                <li>Created dynamic report generation system with customizable templates and interactive dashboards</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">LLM & Gemini</span>
+                <span class="tech-tag">Streamlit</span>
+            </div>
+        </div>
+    
+        <div class="project-card">
+            <h3><i class="fas fa-file-alt"></i> Startup Documentation Generator</h3>
+            <p>An intelligent platform that automates the creation of all essential documents for startups.</p>
+            <ul>
+                <li>Designed effective LangChain-powered sequential chains for document generation</li>
+                <li>Automated creation of project plans, funding proposals, pitch decks, and investor documentation</li>
+                <li>Streamlined UI with Streamlit, ensuring simplicity and efficiency</li>
+                <li>Integrated Gemini AI for accurate and context-aware document generation</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">LLM & Gemini</span>
+            </div>
+        </div>
+    
+        <div class="project-card">
+            <h3><i class="fas fa-om"></i> AtmaVeda AI Platform</h3>
+            <p>Innovative AI system for analyzing and interpreting ancient Indian spiritual texts with advanced security measures.</p>
+            <ul>
+                <li>Developed custom VedaGPT model with 89% accuracy in Sanskrit text interpretation</li>
+                <li>Implemented secure multi-factor authentication and encryption for sensitive content</li>
+                <li>Created real-time translation engine supporting 10+ Indian languages</li>
+                <li>Designed scalable microservices architecture handling 10,000+ daily queries</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Vercel</span>
+                <span class="tech-tag">JWT</span>
+                <span class="tech-tag">LLM & NLP</span>
+                <span class="tech-tag">Streamlit</span>
+            </div>
+        </div>
+    
+        <div class="project-card">
+            <h3><i class="fas fa-lock"></i> OxSecure Intelligence Platform</h3>
+            <p>Comprehensive cybersecurity suite integrating AI-powered tools for advanced threat detection and response.</p>
+            <ul>
+                <li>Developed <strong>OxScanner</strong>: Automated network security analysis tool with 99.9% uptime</li>
+                <li>Engineered <strong>OxRAG</strong>: Advanced report automation system for security documentation</li>
+                <li>Built <strong>OxIntell</strong>: AI-powered secure coding guidance and threat analysis platform</li>
+                <li>Created <strong>OxImagen</strong>: AI-driven vulnerability imaging and visualization tool</li>
+                <li>Implemented intelligent, automated threat hunting workflows with real-time response capabilities</li>
+                <li>Achieved scalability and efficiency using cloud-native architecture on AWS</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Gemini API</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">HuggingFace</span>
+                <span class="tech-tag">FAISS</span>
+                <span class="tech-tag">AWS</span>
+            </div>
+        </div>
+    
+        <div class="project-card">
+            <h3><i class="fas fa-feather-alt"></i> Symphonic: AI for Literary Arts</h3>
+            <p>An advanced natural language processing platform designed specifically for literature enthusiasts, enabling users to generate personalized verses, poems, and prose across diverse genres and styles.</p>
+            <ul>
+                <li>Empowered users to create literary pieces in various genres, from romantic poetry to thought-provoking prose.</li>
+                <li>Integrated multilingual capabilities, supporting all regional Indian languages for wider accessibility and cultural resonance.</li>
+                <li>Implemented seamless text-to-speech conversion, transforming written literary works into expressive audio formats.</li>
+                <li>Utilized the full potential of Gemini's multimodal capabilities to ensure high-quality and immersive literary outputs.</li>
+                <li>Designed a minimalistic yet effective UI for intuitive user interaction, making creative expression effortless.</li>
+                <li>Incorporated advanced plagiarism detection and originality scoring to maintain the uniqueness of generated content.</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">Gemini API</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">GTTS</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Google AI</span>
+            </div>
+        </div>
+    </section>
+    
+
+    <section>
+        <h2><i class="fas fa-certificate"></i> Professional Certifications</h2>
+        <ul class="certifications">
+            <li><i class="fab fa-google"></i> Google Cloud Cybersecurity Professional (2024)</li>
+            <li><i class="fas fa-shield-alt"></i> EC-Council Ethical Hacker Essentials (2023)</li>
+            <li><i class="fas fa-network-wired"></i> EC-Council Network Defense Specialist (2023)</li>
+            <li><i class="fas fa-search"></i> EC-Council Digital Forensics Expert (2023)</li>
+            <li><i class="fas fa-bug"></i> Advanced Malware Analysis Certification (2023)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="experience-item">
+            <h3>Bachelor of Computer Applications</h3>
+            <p><i class="fas fa-university"></i> IGNOU | New Delhi | 2025 (Ongoing)</p>
+            <p>Specialization in Cybersecurity and AI Applications</p>
+        </div>
+        <div class="experience-item">
+            <h3>Bachelor of Arts</h3>
+            <p><i class="fas fa-university"></i> Deen Dayal University | Gorakhpur | 2024</p>
+            <p>CGPA: 7.9 | Focus on Ancinet History and Civilizations</p>
+        </div>
+    </div>
+    <script>
+
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 300, // Increase particle density
+                    density: {
+                        enable: true,
+                        value_area: 1000
+                    }
+                },
+                color: {
+                    value: ['#00ff00'] // Multiple colors for a neon effect
+                },
+                shape: {
+                    type: ['circle', 'edge'], // Mixed shapes for diversity
+                    stroke: {
+                        width: 1,
+                        color: '#ffffff' // Add a subtle glow effect
+                    }
+                },
+                opacity: {
+                    value: 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1.5,
+                        opacity_min: 0.3,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2.5,
+                        size_min: 0.5,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 120, // Shorter distance for neuron-like connections
+                    color: '#00ff00',
+                    opacity: 0.6,
+                    width: 1.2
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'bounce', // Bouncing effect for dynamic visuals
+                    bounce: true,
+                    attract: {
+                        enable: true,
+                        rotateX: 800,
+                        rotateY: 1600
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: ['grab', 'bubble'] // Add bubble effect for hovering
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: ['push', 'repulse'] // Repulse effect on click for dynamic interaction
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 150,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 200,
+                        size: 8,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 6
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>    
+</body>
+</html>
