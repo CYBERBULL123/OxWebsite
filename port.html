@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pandey - Cybersecurity Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #00ff88; /* Neon green */
+            --secondary-color: #00b8ff; /* Neon blue */
+            --background-color: #000000; /* Dark navy */
+            --text-color: #ccd6f6; /* Light gray */
+            --accent-color: #ff2e63; /* Neon pink */
+            --card-bg: #090f1b3c; /* Slightly lighter navy */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glow-effect: 0 0 15px var(--primary-color);
+        }
+
+        [data-theme="light"] {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #00b8ff; /* Light blue */
+            --background-color: #f8f9fa; /* Light gray */
+            --text-color: #343a40; /* Dark gray */
+            --accent-color: #ff2e63; /* Neon pink */
+            --card-bg: #ffffff1b; /* White */
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            text-shadow: var(--glow-effect);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            box-shadow: var(--glow-effect);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            color: var(--primary-color);
+            position: absolute;
+            left: -1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .project-link i {
+            font-size: 1.2rem;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+            gap: 0.5rem; /* Reduce gap for smaller screens */
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+            font-size: 0.9rem; /* Reduce font size for smaller screens */
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px 5px 0 0;
+            flex: 1 1 auto; /* Allow tabs to grow and shrink */
+            text-align: center; /* Center text in tabs */
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: var(--background-color);
+            font-weight: bold;
+        }
+
+        .tab-button:hover {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem; /* Further reduce gap for smaller screens */
+            }
+
+            .tab-button {
+                padding: 0.5rem; /* Adjust padding for smaller screens */
+                font-size: 0.8rem; /* Further reduce font size for smaller screens */
+            }
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-color);
+            font-size: 1rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.1);
+        }
+
+        .skill-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Aditya Pandey</h1>
+            <p>Cybersecurity Engineer | AI Developer | Ethical Hacker</p>
+            <div class="contact-info">
+                <a href="mailto:opaadi98@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>opaadi98@gmail.com</span>
+                </a>
+                <a href="tel:+919696384694" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9696384694</span>
+                </a>
+                <a href="https://linkedin.com/in/aditya-pandey-896109224" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/CYBERBULL123" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </header>
+
+        <nav class="nav">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('projects')">Projects</a>
+            <a href="#" onclick="showPage('certifications')">Certifications</a>
+        </nav>
+
+        <div id="home" class="page active">
+            <section>
+                <h2>About Me</h2>
+                <div class="card">
+                    <p>
+                        I am a cybersecurity researcher and AI developer with expertise in ethical hacking, SOC operations, and AI-driven security solutions. My work focuses on creating innovative platforms that integrate advanced cybersecurity practices with artificial intelligence, particularly in threat detection, vulnerability assessment, and automated security response systems.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h2>Skills</h2>
+                <div class="card">
+                    <div class="tabs">
+                        <button class="tab-button active" onclick="openTab('cybersecurity')">
+                            <i class="fas fa-shield-alt"></i> Cybersecurity
+                        </button>
+                        <button class="tab-button" onclick="openTab('ai-ml')">
+                            <i class="fas fa-brain"></i> AI/ML
+                        </button>
+                        <button class="tab-button" onclick="openTab('programming')">
+                            <i class="fas fa-code"></i> Programming
+                        </button>
+                        <button class="tab-button" onclick="openTab('tools-tech')">
+                            <i class="fas fa-tools"></i> Tools & Technologies
+                        </button>
+                    </div>
+        
+                    <div id="cybersecurity" class="tab-content active">
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <i class="fas fa-user-secret"></i> Ethical Hacking
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-network-wired"></i> Network Security
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-bug"></i> Penetration Testing
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-shield-virus"></i> Threat Detection
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-lock"></i> Vulnerability Assessment
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div id="ai-ml" class="tab-content">
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <i class="fas fa-language"></i> LLM & GAN
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-project-diagram"></i> Neural Networks 
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-language"></i> Natural Language Processing (NLP)
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-cogs"></i> AI Security Frameworks
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-brain"></i> LangChain & Agentic System
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div id="programming" class="tab-content">
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <i class="fab fa-python"></i> Python
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js"></i> JavaScript
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-database"></i> SQL
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-robot"></i> FSDL
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-terminal"></i> Bash Scripting
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div id="tools-tech" class="tab-content">
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <i class="fab fa-docker"></i> Docker
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-aws"></i> AWS
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-google"></i> Google Cloud
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-git"></i> Git
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-server"></i> Kubernetes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <section>
+                <h2>Experience</h2>
+                <div class="card">
+                    <h3>System Administrator & Security Specialist</h3>
+                    <p><strong>Invedus Outsourcing | Noida | April 2023 – September 2023</strong></p>
+                    <ul>
+                        <li>Orchestrated comprehensive penetration testing operations, successfully identifying and mitigating 85% of critical vulnerabilities using advanced tools like Metasploit and Nessus.</li>
+                        <li>Conducted SOC analysis for 100+ security incidents annually, implementing automated response protocols that reduced threat resolution time by 45%.</li>
+                        <li>Architected and deployed robust endpoint protection solutions, resulting in a 50% reduction in security incidents.</li>
+                        <li>Developed and implemented security awareness training programs, improving organizational security posture by 60%.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="projects" class="page">
+            <section>
+                <h2>Projects</h2>
+                <div class="card">
+                    <h3>VAPT Report Generator</h3>
+                    <p>AI-powered platform for automated vulnerability assessment and penetration testing.</p>
+                    <ul>
+                        <li>Engineered an advanced LLM implementation utilizing Chain-of-Thought and Tree-of-Thought methodologies for precise vulnerability analysis.</li>
+                        <li>Developed intelligent severity assessment algorithms achieving 95% accuracy in vulnerability classification.</li>
+                        <li>Implemented automated remediation suggestion system with context-aware security recommendations.</li>
+                        <li>Created dynamic report generation system with customizable templates and interactive dashboards.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">LLM & Gemini</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/VAPT_AI" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>Startup Documentation Generator</h3>
+                    <p>An intelligent platform that automates the creation of all essential documents for startups.</p>
+                    <ul>
+                        <li>Designed effective LangChain-powered sequential chains for document generation.</li>
+                        <li>Automated creation of project plans, funding proposals, pitch decks, and investor documentation.</li>
+                        <li>Streamlined UI with Streamlit, ensuring simplicity and efficiency.</li>
+                        <li>Integrated Gemini AI for accurate and context-aware document generation.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">LLM & Gemini</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/StartupDOC" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>AtmaVeda AI Platform</h3>
+                    <p>Innovative AI system for analyzing and interpreting ancient Indian spiritual texts with advanced security measures.</p>
+                    <ul>
+                        <li>Developed custom VedaGPT model with 89% accuracy in Sanskrit text interpretation.</li>
+                        <li>Implemented secure multi-factor authentication and encryption for sensitive content.</li>
+                        <li>Created real-time translation engine supporting 10+ Indian languages.</li>
+                        <li>Designed scalable microservices architecture handling 10,000+ daily queries.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vercel</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">LLM & NLP</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/AtmaVeda" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>OxSecure Intelligence Platform</h3>
+                    <p>Comprehensive cybersecurity suite integrating AI-powered tools for advanced threat detection and response.</p>
+                    <ul>
+                        <li>Developed <strong>OxScanner</strong>: Automated network security analysis tool with 99.9% uptime.</li>
+                        <li>Engineered <strong>OxRAG</strong>: Advanced report automation system for security documentation.</li>
+                        <li>Built <strong>OxIntell</strong>: AI-powered secure coding guidance and threat analysis platform.</li>
+                        <li>Created <strong>OxImagen</strong>: AI-driven vulnerability imaging and visualization tool.</li>
+                        <li>Implemented intelligent, automated threat hunting workflows with real-time response capabilities.</li>
+                        <li>Achieved scalability and efficiency using cloud-native architecture on AWS.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">HuggingFace</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/G-A.I-Cybersecurity" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>OxScanner</h3>
+                    <p>Automated network security analysis tool with 99.9% uptime.</p>
+                    <ul>
+                        <li>Designed for comprehensive network vulnerability scanning.</li>
+                        <li>Integrated with AI for intelligent threat detection.</li>
+                        <li>Scalable and efficient for enterprise-level deployments.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">Network Security</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/OxScanner" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>Symphonic: AI for Literary Arts</h3>
+                    <p>An advanced natural language processing platform designed specifically for literature enthusiasts, enabling users to generate personalized verses, poems, and prose across diverse genres and styles.</p>
+                    <ul>
+                        <li>Empowered users to create literary pieces in various genres, from romantic poetry to thought-provoking prose.</li>
+                        <li>Integrated multilingual capabilities, supporting all regional Indian languages for wider accessibility and cultural resonance.</li>
+                        <li>Implemented seamless text-to-speech conversion, transforming written literary works into expressive audio formats.</li>
+                        <li>Utilized the full potential of Gemini's multimodal capabilities to ensure high-quality and immersive literary outputs.</li>
+                        <li>Designed a minimalistic yet effective UI for intuitive user interaction, making creative expression effortless.</li>
+                        <li>Incorporated advanced plagiarism detection and originality scoring to maintain the uniqueness of generated content.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">GTTS</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Google AI</span>
+                    </div>
+                    <a href="https://github.com/CYBERBULL123/Symphonic" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="certifications" class="page">
+            <section>
+                <h2>Certifications</h2>
+                <div class="card">
+                    <ul>
+                        <li>Google Cloud Cybersecurity Professional (2024)</li>
+                        <li>EC-Council Ethical Hacker Essentials (2023)</li>
+                        <li>EC-Council Network Defense Specialist (2023)</li>
+                        <li>EC-Council Digital Forensics Expert (2023)</li>
+                        <li>Advanced Malware Analysis Certification (2023)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light";
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            updateParticlesColors();
+        }
+    
+        // Update Particles.js Colors Based on Theme
+        function updateParticlesColors() {
+            const isLightMode = document.body.dataset.theme === "light";
+            // Darker colors for light mode, lighter colors for dark mode
+            const colors = isLightMode ? ['#007bff', '#005fcc', '#003399'] : ['#00ff88', '#00b8ff', '#ff2e63'];
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 100 },
+                    color: { value: colors },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.7, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: colors[0], opacity: 0.4, width: 1 },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: 'none',
+                        random: true,
+                        straight: false,
+                        out_mode: 'bounce',
+                        bounce: true,
+                        attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'grab' },
+                        onclick: { enable: true, mode: 'push' }
+                    },
+                    modes: {
+                        grab: { distance: 200, line_linked: { opacity: 1 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+    
+        // Show Page Functionality
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    
+        // Initialize Particles.js
+        updateParticlesColors();
+
+        function openTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Activate the clicked tab button
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
