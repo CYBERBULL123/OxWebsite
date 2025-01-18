@@ -21,7 +21,7 @@
         [data-theme="light"] {
             --primary-color: #007bff; /* Blue */
             --secondary-color: #00b8ff; /* Light blue */
-            --background-color: #f8f9fa; /* Light gray */
+            --background-color: #f8f9fadf; /* Light gray */
             --text-color: #343a40; /* Dark gray */
             --accent-color: #ff2e63; /* Neon pink */
             --card-bg: #ffffff1b; /* White */
@@ -70,7 +70,6 @@
         header h1 {
             font-size: 3rem;
             color: var(--primary-color);
-            text-shadow: var(--glow-effect);
             margin-bottom: 0.5rem;
         }
 
@@ -340,7 +339,6 @@
             font-size: 1rem;
             padding: 0.75rem;
             border-radius: 5px;
-            background: rgba(0, 255, 136, 0.05);
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
@@ -416,7 +414,7 @@
                 <h2>About Me</h2>
                 <div class="card">
                     <p>
-                        I am a cybersecurity researcher and AI developer with expertise in ethical hacking, SOC operations, and AI-driven security solutions. My work focuses on creating innovative platforms that integrate advanced cybersecurity practices with artificial intelligence, particularly in threat detection, vulnerability assessment, and automated security response systems.
+                        I am a Cybersecurity researcher and AI developer with expertise in Ethical hacking, SOC operations, and AI-driven security solutions. My work focuses on creating innovative platforms that integrate advanced cybersecurity practices with artificial intelligence, particularly in threat detection, vulnerability assessment, and automated security response systems.
                     </p>
                 </div>
             </section>
@@ -455,6 +453,9 @@
                             <div class="skill-item">
                                 <i class="fas fa-lock"></i> Vulnerability Assessment
                             </div>
+                            <div class="skill-item">
+                                <i class="fas fa-language"></i> A.I Security (LLM)
+                            </div>
                         </div>
                     </div>
         
@@ -475,6 +476,9 @@
                             <div class="skill-item">
                                 <i class="fas fa-brain"></i> LangChain & Agentic System
                             </div>
+                            <div class="skill-item">
+                                <i class="fas fa-brain"></i> Deep Learning algorithms
+                            </div>
                         </div>
                     </div>
         
@@ -490,10 +494,13 @@
                                 <i class="fas fa-database"></i> SQL
                             </div>
                             <div class="skill-item">
-                                <i class="fab fa-robot"></i> FSDL
+                                <i class="fas fa-project-diagram"></i> FSDL
                             </div>
                             <div class="skill-item">
                                 <i class="fas fa-terminal"></i> Bash Scripting
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js"></i> Nextjs
                             </div>
                         </div>
                     </div>
@@ -514,6 +521,9 @@
                             </div>
                             <div class="skill-item">
                                 <i class="fas fa-server"></i> Kubernetes
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-network-wired"></i> devOps
                             </div>
                         </div>
                     </div>
@@ -538,8 +548,15 @@
         <div id="projects" class="page">
             <section>
                 <h2>Projects</h2>
+        
+                <!-- Project 1: VAPT Report Generator -->
                 <div class="card">
-                    <h3>VAPT Report Generator</h3>
+                    <div class="card-header">
+                        <h3>VAPT Report Generator</h3>
+                        <a href="https://github.com/CYBERBULL123/VAPT_AI" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
                     <p>AI-powered platform for automated vulnerability assessment and penetration testing.</p>
                     <ul>
                         <li>Engineered an advanced LLM implementation utilizing Chain-of-Thought and Tree-of-Thought methodologies for precise vulnerability analysis.</li>
@@ -554,12 +571,16 @@
                         <span class="tech-tag">LLM & Gemini</span>
                         <span class="tech-tag">Streamlit</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/VAPT_AI" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
+        
+                <!-- Project 2: Startup Documentation Generator -->
                 <div class="card">
-                    <h3>Startup Documentation Generator</h3>
+                    <div class="card-header">
+                        <h3>Startup Documentation Generator</h3>
+                        <a href="https://github.com/CYBERBULL123/StartupDOC" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>GitHub
+                        </a>
+                    </div>
                     <p>An intelligent platform that automates the creation of all essential documents for startups.</p>
                     <ul>
                         <li>Designed effective LangChain-powered sequential chains for document generation.</li>
@@ -573,12 +594,16 @@
                         <span class="tech-tag">Streamlit</span>
                         <span class="tech-tag">LLM & Gemini</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/StartupDOC" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
+        
+                <!-- Project 3: AtmaVeda AI Platform -->
                 <div class="card">
-                    <h3>AtmaVeda AI Platform</h3>
+                    <div class="card-header">
+                        <h3>AtmaVeda AI Platform</h3>
+                        <a href="https://github.com/CYBERBULL123/AtmaVeda" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>GitHub
+                        </a>
+                    </div>
                     <p>Innovative AI system for analyzing and interpreting ancient Indian spiritual texts with advanced security measures.</p>
                     <ul>
                         <li>Developed custom VedaGPT model with 89% accuracy in Sanskrit text interpretation.</li>
@@ -594,12 +619,16 @@
                         <span class="tech-tag">LLM & NLP</span>
                         <span class="tech-tag">Streamlit</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/AtmaVeda" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
+        
+                <!-- Project 4: OxSecure Intelligence Platform -->
                 <div class="card">
-                    <h3>OxSecure Intelligence Platform</h3>
+                    <div class="card-header">
+                        <h3>OxSecure Intelligence Platform</h3>
+                        <a href="https://github.com/CYBERBULL123/G-A.I-Cybersecurity" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>GitHub
+                        </a>
+                    </div>
                     <p>Comprehensive cybersecurity suite integrating AI-powered tools for advanced threat detection and response.</p>
                     <ul>
                         <li>Developed <strong>OxScanner</strong>: Automated network security analysis tool with 99.9% uptime.</li>
@@ -618,12 +647,17 @@
                         <span class="tech-tag">FAISS</span>
                         <span class="tech-tag">AWS</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/G-A.I-Cybersecurity" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
+        
+                <!-- Project 5: OxScanner -->
                 <div class="card">
-                    <h3>OxScanner</h3>
+                    <div class="card-header">
+                        <h3>OxScanner</h3>
+                        <a href="https://github.com/CYBERBULL123/OxScanner" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </div>
                     <p>Automated network security analysis tool with 99.9% uptime.</p>
                     <ul>
                         <li>Designed for comprehensive network vulnerability scanning.</li>
@@ -635,12 +669,16 @@
                         <span class="tech-tag">AI/ML</span>
                         <span class="tech-tag">Network Security</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/OxScanner" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
+        
+                <!-- Project 6: Symphonic: AI for Literary Arts -->
                 <div class="card">
-                    <h3>Symphonic: AI for Literary Arts</h3>
+                    <div class="card-header">
+                        <h3>Symphonic: AI for Literary Arts</h3>
+                        <a href="https://github.com/CYBERBULL123/Symphonic" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
                     <p>An advanced natural language processing platform designed specifically for literature enthusiasts, enabling users to generate personalized verses, poems, and prose across diverse genres and styles.</p>
                     <ul>
                         <li>Empowered users to create literary pieces in various genres, from romantic poetry to thought-provoking prose.</li>
@@ -659,9 +697,6 @@
                         <span class="tech-tag">Streamlit</span>
                         <span class="tech-tag">Google AI</span>
                     </div>
-                    <a href="https://github.com/CYBERBULL123/Symphonic" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
                 </div>
             </section>
         </div>
@@ -685,78 +720,123 @@
         // Theme Toggle
         function toggleTheme() {
             const body = document.body;
-            body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light";
+            const isLightMode = body.dataset.theme === "light";
+            body.dataset.theme = isLightMode ? "dark" : "light";
+    
+            // Update theme toggle icon
             const icon = document.querySelector('.theme-toggle i');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
+            if (icon) {
+                icon.classList.toggle('fa-moon');
+                icon.classList.toggle('fa-sun');
+            }
+    
+            // Update particles colors based on the new theme
             updateParticlesColors();
         }
     
         // Update Particles.js Colors Based on Theme
         function updateParticlesColors() {
             const isLightMode = document.body.dataset.theme === "light";
-            // Darker colors for light mode, lighter colors for dark mode
+    
+            // Define colors based on the theme
             const colors = isLightMode ? ['#007bff', '#005fcc', '#003399'] : ['#00ff88', '#00b8ff', '#ff2e63'];
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 100 },
-                    color: { value: colors },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.7, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: { enable: true, distance: 150, color: colors[0], opacity: 0.4, width: 1 },
-                    move: {
-                        enable: true,
-                        speed: 3,
-                        direction: 'none',
-                        random: true,
-                        straight: false,
-                        out_mode: 'bounce',
-                        bounce: true,
-                        attract: { enable: true, rotateX: 600, rotateY: 1200 }
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: { enable: true, mode: 'grab' },
-                        onclick: { enable: true, mode: 'push' }
+    
+            // Update particles configuration
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                // If particlesJS is already initialized, update its configuration
+                const pJS = window.pJSDom[0].pJS;
+                pJS.particles.color.value = colors;
+                pJS.particles.line_linked.color = colors[0];
+                pJS.fn.particlesRefresh(); // Refresh particles to apply changes
+            } else {
+                // Initialize particlesJS if not already initialized
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 100 },
+                        color: { value: colors },
+                        shape: { type: 'circle' },
+                        opacity: { value: 0.9, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: colors[0],
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 3,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'bounce',
+                            bounce: true,
+                            attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                        }
                     },
-                    modes: {
-                        grab: { distance: 200, line_linked: { opacity: 1 } },
-                        push: { particles_nb: 4 }
-                    }
-                },
-                retina_detect: true
-            });
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: { enable: true, mode: 'grab' },
+                            onclick: { enable: true, mode: 'push' }
+                        },
+                        modes: {
+                            grab: { distance: 200, line_linked: { opacity: 1 } },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+    
+            // Update background color of the particles container
+            const particlesContainer = document.getElementById('particles-js');
+            if (particlesContainer) {
+                particlesContainer.style.backgroundColor = isLightMode;
+            }
         }
     
         // Show Page Functionality
         function showPage(pageId) {
+            // Hide all pages
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
+    
+            // Show the selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
         }
     
-        // Initialize Particles.js
-        updateParticlesColors();
-
-        function openTab(tabName) {
+        // Open Tab Functionality
+        function openTab(tabName, event) {
             // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-
+    
             // Deactivate all tab buttons
             document.querySelectorAll('.tab-button').forEach(button => {
                 button.classList.remove('active');
             });
-
+    
             // Show the selected tab content
-            document.getElementById(tabName).classList.add('active');
-
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+    
             // Activate the clicked tab button
-            event.currentTarget.classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
         }
+    
+        // Initialize Particles.js on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateParticlesColors();
+        });
     </script>
 </body>
 </html>
