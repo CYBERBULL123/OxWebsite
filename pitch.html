@@ -66,76 +66,93 @@
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Navbar -->
-    <nav class="p-4 bg-gray-900 shadow-lg fixed w-full z-10 top-0">
-        <div class="container mx-auto flex justify-between items-center">
+  <nav id="navbar" class="p-4 w-full z-10 top-0 bg-black/50 backdrop-blur-lg transition duration-300">
+    <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <div class="text-2xl font-bold text-white flex items-center">
+        <div class="text-xl md:text-2xl font-bold text-white flex items-center">
             <i class="fas fa-shield-alt mr-2 text-blue-500"></i> OxSecure Intelligence
         </div>
-    
+
         <!-- Menu Icon for Mobile -->
         <button id="menu-toggle" class="text-white text-2xl focus:outline-none md:hidden">
             <i class="fas fa-bars"></i>
         </button>
-    
+
         <!-- Navigation Links -->
-        <div id="menu" class="hidden md:flex space-x-6 items-center">
-            <a href="#about" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-info-circle mr-1"></i> About
+        <div id="menu" class="hidden md:flex space-x-4 items-center">
+            <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-info-circle mr-1"></i> About
             </a>
-            <a href="#features" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-cogs mr-1"></i> Features
+            <a href="#features" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-cogs mr-1"></i> Features
             </a>
-            <a href="#market" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-chart-line mr-1"></i> Market
+            <a href="#market" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-chart-line mr-1"></i> Market
             </a>
-            <a href="#why-invest" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-hand-holding-usd mr-1"></i> Why Invest
+            <a href="#why-invest" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-hand-holding-usd mr-1"></i> Why Invest
             </a>
-            <a href="#architecture" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-drafting-compass mr-1"></i> Architecture
+            <a href="#architecture" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-drafting-compass mr-1"></i> Architecture
             </a>
-            <a href="#ecosystem" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-globe mr-1"></i> Ecosystem
+            <a href="#ecosystem" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-globe mr-1"></i> Ecosystem
             </a>
-            <a href="#investment-growth" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-chart-pie mr-1"></i> Growth
+            <a href="#investment-growth" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-chart-pie mr-1"></i> Growth
             </a>
-            <a href="#financials" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-file-invoice-dollar mr-1"></i> Financials
+            <a href="#financials" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-file-invoice-dollar mr-1"></i> Financials
             </a>
-            <a href="#team" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-users mr-1"></i> Team
+            <a href="#team" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-users mr-1"></i> Team
             </a>
-            <a href="#contact" class="text-gray-300 hover:text-blue-500 transition duration-300">
-            <i class="fas fa-envelope mr-1"></i> Contact
+            <a href="#contact" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-envelope mr-1"></i> Contact
             </a>
         </div>
-        </div>
-    </nav>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden bg-gray-800 text-white p-4">
-        <a href="#about" class="block py-2 hover:text-blue-500">About</a>
-        <a href="#features" class="block py-2 hover:text-blue-500">Features</a>
-        <a href="#market" class="block py-2 hover:text-blue-500">Market</a>
-        <a href="#why-invest" class="block py-2 hover:text-blue-500">Why Invest</a>
-        <a href="#architecture" class="block py-2 hover:text-blue-500">Architecture</a>
-        <a href="#ecosystem" class="block py-2 hover:text-blue-500">Ecosystem</a>
-        <a href="#investment-growth" class="block py-2 hover:text-blue-500">Growth</a>
-        <a href="#financials" class="block py-2 hover:text-blue-500">Financials</a>
-        <a href="#team" class="block py-2 hover:text-blue-500">Team</a>
-        <a href="#contact" class="block py-2 hover:text-blue-500">Contact</a>
     </div>
-    
+  </nav>
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-gray-800 text-white p-4 space-y-2 md:hidden">
+      <a href="#about" class="block py-2 hover:text-blue-400">About</a>
+      <a href="#features" class="block py-2 hover:text-blue-400">Features</a>
+      <a href="#market" class="block py-2 hover:text-blue-400">Market</a>
+      <a href="#why-invest" class="block py-2 hover:text-blue-400">Why Invest</a>
+      <a href="#architecture" class="block py-2 hover:text-blue-400">Architecture</a>
+      <a href="#ecosystem" class="block py-2 hover:text-blue-400">Ecosystem</a>
+      <a href="#investment-growth" class="block py-2 hover:text-blue-400">Growth</a>
+      <a href="#financials" class="block py-2 hover:text-blue-400">Financials</a>
+      <a href="#team" class="block py-2 hover:text-blue-400">Team</a>
+      <a href="#contact" class="block py-2 hover:text-blue-400">Contact</a>
+    </div>
+
     <!-- Mobile Menu Script -->
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-    
-        menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        });
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+      });
+
+      // Navbar Scroll Behavior
+      let lastScrollTop = 0;
+      const navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Hide on scroll down, show on scroll up
+          if (scrollTop > lastScrollTop) {
+              navbar.style.transform = 'translateY(-100%)';
+          } else {
+              navbar.style.transform = 'translateY(0)';
+          }
+          lastScrollTop = scrollTop;
+      });
     </script>
   
 
