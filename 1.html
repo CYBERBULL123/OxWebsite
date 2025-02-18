@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OxSecure Intelligence Pitch Deck</title>
+
+  <!-- Reveal.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .chart-container {
+      width: 80% !important;
+      height: 60vh !important;
+      margin: 0 auto;
+    }
+    .full-screen-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .logo-corner {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      width: 100px;
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-up.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-content {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .highlight-text {
+      color: #ffdd57;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.ibb.co/0ygdCdV1/144645514-10165958.jpg" class="logo-corner" alt="OxSecure Logo">
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section data-background-video="cyber-security.mp4" data-background-video-loop data-background-video-muted>
+        <div class="slide-content text-center text-white">
+          <h1 class="text-5xl font-bold mb-8 animate__animated animate__fadeIn animate__delay-1s">OxSecure Intelligence</h1>
+          <h3 class="text-3xl mb-6">AI-Powered Cybersecurity Evolution</h3>
+          <p class="mt-8 text-xl">₹3 Crore Seed Round</p>
+        </div>
+      </section>
+
+      <!-- Problem Slide -->
+      <section>
+        <h2 class="text-3xl font-semibold text-center text-white mb-6">The ₹78 Trillion Problem</h2>
+        <div class="grid grid-cols-2 gap-8 mt-16">
+          <div class="text-left text-lg text-white">
+            <p><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i><span class="highlight-text">Cybercrime costs growing at 15% CAGR</span></p>
+            <ul class="space-y-4 mt-6">
+              <li><i class="fas fa-bug text-yellow-500"></i> 30% increase in zero-day attacks</li>
+              <li><i class="fas fa-clock text-blue-500"></i> 287 days average breach detection</li>
+              <li><i class="fas fa-dollar-sign text-green-500"></i> ₹33.2 Crore average breach cost</li>
+            </ul>
+          </div>
+          <div class="chart-container">
+            <canvas id="cybercrimeChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution Slide -->
+      <section>
+        <h2 class="text-3xl font-semibold text-center text-white">Our AI-Driven Solution</h2>
+        <div class="grid grid-cols-3 gap-8 mt-16">
+          <div class="p-4 bg-gray-800 rounded-lg hover-scale text-center">
+            <i class="fas fa-brain text-4xl text-blue-500 mb-4"></i>
+            <h4 class="text-xl">Real-Time Threat Detection</h4>
+            <p class="text-sm">AI models detect threats in real-time</p>
+          </div>
+          <div class="p-4 bg-gray-800 rounded-lg hover-scale text-center">
+            <i class="fas fa-bolt text-4xl text-yellow-500 mb-4"></i>
+            <h4 class="text-xl">Automated Vulnerability Management</h4>
+            <p class="text-sm">AI-driven patching and insights</p>
+          </div>
+          <div class="p-4 bg-gray-800 rounded-lg hover-scale text-center">
+            <i class="fas fa-code-branch text-4xl text-green-500 mb-4"></i>
+            <h4 class="text-xl">Generative AI for Code Audits</h4>
+            <p class="text-sm">Secure coding with Gemini LLM</p>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <video class="w-2/3 mx-auto" controls>
+            <source src="product-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <!-- Market Opportunity -->
+      <section>
+        <h2 class="text-3xl font-semibold text-center text-white">₹22 Lakh Crore Market Opportunity</h2>
+        <div class="grid grid-cols-2 gap-8 mt-16">
+          <div class="chart-container">
+            <canvas id="marketChart"></canvas>
+          </div>
+          <div class="text-left text-white">
+            <p class="text-lg mb-8">Key Growth Drivers:</p>
+            <ul class="space-y-4">
+              <li><i class="fas fa-cloud text-blue-500"></i> Cloud migration</li>
+              <li><i class="fas fa-robot text-purple-500"></i> AI adoption</li>
+              <li><i class="fas fa-building text-yellow-500"></i> SME demand</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture Slide -->
+      <section data-background="https://i.ibb.co/sJCvgTzr/TLTVZ-Eu3-N-tfr1-Tu3gtk-Dnk-Eo-7-FXINJJBRO3-Ctw-MJ-52-WAGx4-PHnj-PSYLv-Ph9.png" data-background-size="contain">
+        <div class="bg-black/70 p-4 rounded-lg text-white">
+          <h3 class="text-2xl font-bold">Multi-Cloud AISecOps Architecture</h3>
+          <p>End-to-end security across multi-cloud environments</p>
+        </div>
+      </section>
+
+      <!-- Financial Projections -->
+      <section>
+        <h2 class="text-3xl font-semibold text-center text-white">Growth Trajectory</h2>
+        <div class="chart-container">
+          <canvas id="investmentGrowthChart"></canvas>
+        </div>
+        <div class="grid grid-cols-3 gap-4 mt-8 text-white">
+          <div class="bg-gray-800 p-4 rounded text-center">
+            <p class="text-2xl font-bold">Year 1</p>
+            <p>₹3 Crore ARR</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded text-center">
+            <p class="text-2xl font-bold">Year 3</p>
+            <p>₹60 Crore ARR</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded text-center">
+            <p class="text-2xl font-bold">Year 5</p>
+            <p>₹180 Crore ARR</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Slide -->
+      <section>
+        <h2 class="text-3xl font-semibold text-center text-white">Expert Team</h2>
+        <div class="grid grid-cols-3 gap-8 mt-16">
+          <div class="team-member text-center">
+            <img src="https://via.placeholder.com/150" alt="CEO" class="rounded-full mb-4 mx-auto">
+            <h4 class="text-xl">John Smith</h4>
+            <p class="text-sm">Ex-NSA Cybersecurity Lead</p>
+            <div class="flex justify-center space-x-2 mt-2">
+              <a href="#"><i class="fab fa-linkedin text-blue-400"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ask Slide -->
+      <section data-background="investors-bg.jpg">
+        <div class="bg-black/70 p-8 rounded-xl text-center text-white">
+          <h2 class="text-4xl mb-8">Join Our Mission</h2>
+          <div class="text-left space-y-4 text-xl">
+            <p><i class="fas fa-bullseye mr-2"></i>₹3 Crore Seed Round</p>
+            <p><i class="fas fa-rocket mr-2"></i>15% Equity</p>
+            <p><i class="fas fa-chart-line mr-2"></i>45% Projected IRR</p>
+          </div>
+          <div class="mt-12">
+            <button class="bg-blue-600 px-8 py-3 rounded-full text-xl hover:bg-blue-800 transition duration-300">
+              Schedule Meeting
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide',
+    });
+
+    // Chart.js Data for Cybercrime Growth
+    var ctx1 = document.getElementById('cybercrimeChart').getContext('2d');
+    var cybercrimeChart = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Cybercrime Costs',
+          data: [300, 400, 500, 700, 1000],
+          borderColor: '#ff6347',
+          backgroundColor: 'rgba(255, 99, 71, 0.2)',
+          borderWidth: 1,
+        }],
+      },
+    });
+
+    // Market Opportunity Chart
+    var ctx2 = document.getElementById('marketChart').getContext('2d');
+    var marketChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Cloud Security', 'Threat Intelligence', 'Data Protection', 'SME Solutions'],
+        datasets: [{
+          label: 'Market Size (₹ Crore)',
+          data: [10000, 15000, 5000, 7000],
+          backgroundColor: '#4c8bf5',
+          borderColor: '#3e73b4',
+          borderWidth: 1,
+        }],
+      },
+    });
+
+    // Investment Growth
+    var ctx3 = document.getElementById('investmentGrowthChart').getContext('2d');
+    var growthChart = new Chart(ctx3, {
+      type: 'line',
+      data: {
+        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+        datasets: [{
+          label: 'Projected Growth',
+          data: [30, 60, 120, 150, 200],
+          borderColor: '#32a852',
+          backgroundColor: 'rgba(50, 168, 82, 0.3)',
+          borderWidth: 2,
+        }],
+      },
+    });
+  </script>
+</body>
+</html>
