@@ -12,7 +12,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pitch Deck</title>
+  <title>OxSecure Intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>🛡️</text></svg>">
   
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
@@ -613,20 +614,32 @@
         <i class="fas fa-envelope mr-2"></i>Get In Touch
       </h2>
       <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-        <form action="#" method="POST" class="space-y-4">
+        <form id="contactForm" class="space-y-4">
           <div>
             <label class="block mb-2 font-bold" for="name">Name</label>
-            <input class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" id="name" name="name" placeholder="Your Name" required>
+            <input class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="text" id="name" name="name" placeholder="Your Name" required>
           </div>
           <div>
             <label class="block mb-2 font-bold" for="email">Email</label>
-            <input class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" id="email" name="email" placeholder="Your Email" required>
+            <input class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="email" id="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div>
+            <label class="block mb-2 font-bold" for="template">Message Type</label>
+            <select id="template" class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Business Collaboration">Business Collaboration</option>
+              <option value="Investment Opportunity">Investment Opportunity</option>
+              <option value="Support Request">Support Request</option>
+            </select>
           </div>
           <div>
             <label class="block mb-2 font-bold" for="message">Message</label>
-            <textarea class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+            <textarea class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
           </div>
-          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
+          <button type="button" onclick="sendEmail()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
             Send Message
           </button>
         </form>
@@ -911,6 +924,18 @@
         }
       }
     });
+
+    function sendEmail() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var template = document.getElementById("template").value;
+      var message = document.getElementById("message").value;
+
+      var subject = encodeURIComponent(template + " - " + name);
+      var body = encodeURIComponent("Hello,\n\n" + message + "\n\nBest Regards,\n" + name + "\n" + email);
+
+      window.location.href = "mailto:opaadi98@gmail.com?subject=" + subject + "&body=" + body;
+    }
   </script>
 </body>
 </html>
