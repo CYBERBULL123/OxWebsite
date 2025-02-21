@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OxSecure Intelligence - Revolutionizing Cybersecurity</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0a192f;
+      color: #ccd6f6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      color: #64ffda;
+    }
+
+    a {
+      color: #64ffda;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+      padding: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #64ffda;
+      color: #0a192f;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #52d1b2;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+    .delay-3 { animation-delay: 1.5s; }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(17, 34, 64, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: backdrop-filter 0.3s ease;
+    }
+
+    header.scrolled {
+      backdrop-filter: blur(20px);
+    }
+
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #64ffda;
+      padding: 20px;
+    }
+
+    /* Carousel Navigation */
+    .carousel-nav {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .carousel-nav button {
+      background-color: #64ffda;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-nav button:hover {
+      background-color: #52d1b2;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(to right, #0a192f, #112240);
+    }
+
+    #hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+    }
+
+    #hero p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+    }
+
+    /* Problem Section */
+    #problem {
+      background-color: #112240;
+    }
+
+    #problem h2 {
+      margin-bottom: 40px;
+    }
+
+    #problem p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Solution Section */
+    #solution {
+      background-color: #0a192f;
+    }
+
+    #solution h2 {
+      margin-bottom: 40px;
+    }
+
+    #solution p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Features Section */
+    #features {
+      background-color: #112240;
+    }
+
+    #features h2 {
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background-color: #0a192f;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature i {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #64ffda;
+    }
+
+    /* Market Opportunity Section */
+    #market-opportunity {
+      background-color: #0a192f;
+    }
+
+    #market-opportunity h2 {
+      margin-bottom: 40px;
+    }
+
+    .chart-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Competitive Advantage Section */
+    #competitive-advantage {
+      background-color: #112240;
+    }
+
+    #competitive-advantage h2 {
+      margin-bottom: 40px;
+    }
+
+    #competitive-advantage p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Traction Section */
+    #traction {
+      background-color: #0a192f;
+    }
+
+    #traction h2 {
+      margin-bottom: 40px;
+    }
+
+    #traction p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Business Model Section */
+    #business-model {
+      background-color: #112240;
+    }
+
+    #business-model h2 {
+      margin-bottom: 40px;
+    }
+
+    #business-model p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* The Ask Section */
+    #the-ask {
+      background-color: #0a192f;
+    }
+
+    #the-ask h2 {
+      margin-bottom: 40px;
+    }
+
+    #the-ask p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Closing Section */
+    #closing {
+      background-color: #112240;
+    }
+
+    #closing h2 {
+      margin-bottom: 20px;
+    }
+
+    #closing p {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0a192f;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="navbar">
+    <div class="logo">OxSecure Intelligence</div>
+  </header>
+
+  <!-- Carousel Navigation -->
+  <div class="carousel-nav">
+    <button onclick="scrollToSection('hero')"><i class="fas fa-home"></i></button>
+    <button onclick="scrollToSection('problem')"><i class="fas fa-exclamation-circle"></i></button>
+    <button onclick="scrollToSection('solution')"><i class="fas fa-lightbulb"></i></button>
+    <button onclick="scrollToSection('features')"><i class="fas fa-cogs"></i></button>
+    <button onclick="scrollToSection('market-opportunity')"><i class="fas fa-chart-line"></i></button>
+    <button onclick="scrollToSection('competitive-advantage')"><i class="fas fa-trophy"></i></button>
+    <button onclick="scrollToSection('traction')"><i class="fas fa-rocket"></i></button>
+    <button onclick="scrollToSection('business-model')"><i class="fas fa-coins"></i></button>
+    <button onclick="scrollToSection('the-ask')"><i class="fas fa-hand-holding-usd"></i></button>
+    <button onclick="scrollToSection('closing')"><i class="fas fa-handshake"></i></button>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="section">
+    <div class="container">
+      <h1 class="fade-in">Revolutionizing Cybersecurity with AI</h1>
+      <p class="fade-in delay-1">OxSecure Intelligence is the future of enterprise cybersecurity, powered by AGI and LLMs.</p>
+      <a href="#problem" class="btn fade-in delay-2">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem" class="section">
+    <div class="container">
+      <h2 class="fade-in">The Problem</h2>
+      <p class="fade-in delay-1">Cyberattacks are evolving faster than traditional defenses, leaving enterprises vulnerable to data breaches, operational downtime, and manual inefficiencies. In 2023 alone, the global cost of cybercrime reached $10.5 trillion, with businesses facing an average of 1,200 attacks per day.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="problemChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution" class="section">
+    <div class="container">
+      <h2 class="fade-in">The Solution</h2>
+      <p class="fade-in delay-1">OxSecure Intelligence is an AI-driven, multi-cloud SecOps platform that automates threat detection, penetration testing, and incident response. By integrating AGI and LLMs, we provide real-time insights and proactive defense mechanisms to secure your enterprise.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="solutionChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="fade-in">Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature fade-in delay-1">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Real-Time Threat Detection</h3>
+          <p>Uses deep learning models to identify anomalies and predict attacks.</p>
+        </div>
+        <div class="feature fade-in delay-2">
+          <i class="fas fa-bug"></i>
+          <h3>Automated Penetration Testing</h3>
+          <p>Simulates attacks to identify vulnerabilities before hackers do.</p>
+        </div>
+        <div class="feature fade-in delay-3">
+          <i class="fas fa-brain"></i>
+          <h3>Self-Learning AI</h3>
+          <p>Continuously learns from new threats and optimizes processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Opportunity Section -->
+  <section id="market-opportunity" class="section">
+    <div class="container">
+      <h2 class="fade-in">Market Opportunity</h2>
+      <p class="fade-in delay-1">The global cybersecurity market is projected to reach $500 billion by 2030, driven by increasing cyber threats and regulatory pressures. Enterprises are investing heavily in AI-driven solutions to stay ahead of attackers.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="marketChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitive Advantage Section -->
+  <section id="competitive-advantage" class="section">
+    <div class="container">
+      <h2 class="fade-in">Competitive Advantage</h2>
+      <p class="fade-in delay-1">OxSecure integrates AGI and LLMs for advanced reasoning, dynamic knowledge graphs, and self-optimizing processes. Unlike traditional tools, our platform evolves with your business, providing unparalleled security.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="advantageChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traction Section -->
+  <section id="traction" class="section">
+    <div class="container">
+      <h2 class="fade-in">Traction</h2>
+      <p class="fade-in delay-1">Our MVP is fully functional, with positive feedback from early users and a scalable architecture ready for enterprise adoption. We’ve already secured partnerships with leading tech firms and are on track to onboard 50+ enterprises by 2024.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="tractionChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Model Section -->
+  <section id="business-model" class="section">
+    <div class="container">
+      <h2 class="fade-in">Business Model</h2>
+      <p class="fade-in delay-1">We operate on a subscription-based model with tiered pricing for small, medium, and large enterprises. Our revenue streams include subscription fees, enterprise licenses, and professional services.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="businessChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Ask Section -->
+  <section id="the-ask" class="section">
+    <div class="container">
+      <h2 class="fade-in">The Ask</h2>
+      <p class="fade-in delay-1">We’re seeking $1.5 million in seed funding to refine our MVP, build our team, and launch go-to-market strategies. With your support, we can revolutionize cybersecurity and protect enterprises worldwide.</p>
+      <div class="chart-container fade-in delay-2">
+        <canvas id="askChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Section -->
+  <section id="closing" class="section">
+    <div class="container">
+      <h2 class="fade-in">Join Us in Building the Future of Cybersecurity</h2>
+      <p class="fade-in delay-1">Let’s make the digital world safer together. Contact us to learn more or invest in OxSecure Intelligence.</p>
+      <a href="#contact" class="btn fade-in delay-2">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 OxSecure Intelligence. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Chart.js for Problem Section
+    const problemCtx = document.getElementById('problemChart').getContext('2d');
+    const problemChart = new Chart(problemCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Data Breaches', 'Operational Downtime', 'Manual Inefficiencies'],
+        datasets: [{
+          label: 'Impact of Cyberattacks',
+          data: [70, 50, 60],
+          backgroundColor: ['#64ffda', '#52d1b2', '#3fa58e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          },
+          x: {
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for Solution Section
+    const solutionCtx = document.getElementById('solutionChart').getContext('2d');
+    const solutionChart = new Chart(solutionCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Threat Detection', 'Penetration Testing', 'Incident Response'],
+        datasets: [{
+          label: 'Solution Components',
+          data: [40, 30, 30],
+          backgroundColor: ['#64ffda', '#52d1b2', '#3fa58e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for Market Opportunity
+    const marketCtx = document.getElementById('marketChart').getContext('2d');
+    const marketChart = new Chart(marketCtx, {
+      type: 'line',
+      data: {
+        labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2030'],
+        datasets: [{
+          label: 'Global Cybersecurity Market (in $ billions)',
+          data: [150, 180, 220, 260, 310, 370, 500],
+          borderColor: '#64ffda',
+          backgroundColor: 'rgba(100, 255, 218, 0.2)',
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          },
+          x: {
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for Competitive Advantage
+    const advantageCtx = document.getElementById('advantageChart').getContext('2d');
+    const advantageChart = new Chart(advantageCtx, {
+      type: 'radar',
+      data: {
+        labels: ['AGI Integration', 'Dynamic Knowledge Graphs', 'Self-Optimizing Processes'],
+        datasets: [{
+          label: 'Competitive Advantage',
+          data: [90, 85, 95],
+          backgroundColor: 'rgba(100, 255, 218, 0.2)',
+          borderColor: '#64ffda',
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            grid: {
+              color: '#112240',
+            },
+            angleLines: {
+              color: '#112240',
+            },
+            pointLabels: {
+              color: '#ccd6f6',
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for Traction
+    const tractionCtx = document.getElementById('tractionChart').getContext('2d');
+    const tractionChart = new Chart(tractionCtx, {
+      type: 'bar',
+      data: {
+        labels: ['MVP Development', 'User Feedback', 'Scalability'],
+        datasets: [{
+          label: 'Traction Metrics',
+          data: [80, 90, 85],
+          backgroundColor: ['#64ffda', '#52d1b2', '#3fa58e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          },
+          x: {
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for Business Model
+    const businessCtx = document.getElementById('businessChart').getContext('2d');
+    const businessChart = new Chart(businessCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Subscription Fees', 'Enterprise Licenses', 'Professional Services'],
+        datasets: [{
+          label: 'Revenue Streams',
+          data: [60, 30, 10],
+          backgroundColor: ['#64ffda', '#52d1b2', '#3fa58e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Chart.js for The Ask
+    const askCtx = document.getElementById('askChart').getContext('2d');
+    const askChart = new Chart(askCtx, {
+      type: 'bar',
+      data: {
+        labels: ['MVP Refinement', 'Team Building', 'Go-to-Market'],
+        datasets: [{
+          label: 'Funding Allocation',
+          data: [50, 30, 20],
+          backgroundColor: ['#64ffda', '#52d1b2', '#3fa58e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          },
+          x: {
+            grid: {
+              color: '#112240',
+            },
+            ticks: {
+              color: '#ccd6f6',
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6',
+            }
+          }
+        }
+      }
+    });
+
+    // Navbar Blur Effect on Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth Scroll to Sections
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

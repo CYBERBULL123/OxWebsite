@@ -1,401 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Pandey - Cybersecurity Engineer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-    <style>
-        :root {
-            --primary-color: #00ff88; /* Neon green */
-            --secondary-color: #00b8ff; /* Neon blue */
-            --background-color: #000000; /* Dark navy */
-            --text-color: #ccd6f6; /* Light gray */
-            --accent-color: #ff2e63; /* Neon pink */
-            --card-bg: #0000003e; /* Slightly lighter navy */
-            --border-color: rgba(255, 255, 255, 0.1);
-            --glow-effect: 0 0 15px var(--primary-color);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background-color: var(--background-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            text-shadow: var(--glow-effect);
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            opacity: 0.8;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item i {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        .contact-item:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-color);
-            box-shadow: var(--glow-effect);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: var(--text-color);
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        .card ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-
-        .card ul li {
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: "▹";
-            color: var(--primary-color);
-            position: absolute;
-            left: -1rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border: 1px solid var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            background: var(--primary-color);
-            color: var(--background-color);
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .card h3 {
-                font-size: 1.2rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container { width: 700px; height: 400px; margin: 0 auto; }
+    .team-member img { width: 150px; height: 150px; border-radius: 50%; }
+    .competitor-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .slide-description { font-size: 14px; color: #888; margin-top: 10px; }
+    .slide-title { margin-bottom: 20px; }
+  </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div class="container">
-        <header>
-            <h1>Aditya Pandey</h1>
-            <p>Cybersecurity Engineer | AI Developer | Ethical Hacker</p>
-            <div class="contact-info">
-                <a href="mailto:opaadi98@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>opaadi98@gmail.com</span>
-                </a>
-                <a href="tel:+919696384694" class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 9696384694</span>
-                </a>
-                <a href="https://linkedin.com/in/aditya-pandey-896109224" target="_blank" class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/CYBERBULL123" target="_blank" class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </header>
+<div class="reveal">
+<div class="slides">
 
-        <section>
-            <h2>About Me</h2>
-            <div class="card">
-                <p>
-                    I am a cybersecurity researcher and AI developer with expertise in ethical hacking, SOC operations, and AI-driven security solutions. My work focuses on creating innovative platforms that integrate advanced cybersecurity practices with artificial intelligence, particularly in threat detection, vulnerability assessment, and automated security response systems.
-                </p>
-            </div>
-        </section>
+<!-- Title Slide -->
+<section data-background="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1950">
+  <h1 style="text-shadow: 2px 2px 4px black;">OxSecure Intelligence</h1>
+  <h3 style="color: #00ff9d;">AI-Powered Cybersecurity Revolution</h3>
+  <p>Seeking ₹15 Crore Seed Funding | Valuation ₹90 Crore</p>
+  <p class="slide-description">Welcome to OxSecure Intelligence, where we revolutionize cybersecurity with AI. Here's our vision, mission, and what we're seeking in this investment round.</p>
+</section>
 
-        <section>
-            <h2>Experience</h2>
-            <div class="card">
-                <h3>System Administrator & Security Specialist</h3>
-                <p><strong>Invedus Outsourcing | Noida | April 2023 – September 2023</strong></p>
-                <ul>
-                    <li>Orchestrated comprehensive penetration testing operations, successfully identifying and mitigating 85% of critical vulnerabilities using advanced tools like Metasploit and Nessus.</li>
-                    <li>Conducted SOC analysis for 100+ security incidents annually, implementing automated response protocols that reduced threat resolution time by 45%.</li>
-                    <li>Architected and deployed robust endpoint protection solutions, resulting in a 50% reduction in security incidents.</li>
-                    <li>Developed and implemented security awareness training programs, improving organizational security posture by 60%.</li>
-                </ul>
-            </div>
-        </section>
+<!-- Problem Slide -->
+<section>
+  <h2 class="slide-title">The Cyber Threat Crisis</h2>
+  <div class="chart-container">
+    <canvas id="threatChart"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById('threatChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Zero-Day', 'Ransomware', 'Phishing'],
+        datasets: [{
+          label: 'Attacks (YoY Growth)',
+          data: [68, 45, 62],
+          backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe']
+        }]
+      },
+      options: { legend: { display: false } }
+    });
+  </script>
+  <p class="slide-description">This slide illustrates the alarming growth in cyber threats, highlighting why there's an urgent need for advanced security solutions.</p>
+</section>
 
-        <section>
-            <h2>Projects</h2>
-            <div class="card">
-                <h3>VAPT Report Generator</h3>
-                <p>AI-powered platform for automated vulnerability assessment and penetration testing.</p>
-                <ul>
-                    <li>Engineered an advanced LLM implementation utilizing Chain-of-Thought and Tree-of-Thought methodologies for precise vulnerability analysis.</li>
-                    <li>Developed intelligent severity assessment algorithms achieving 95% accuracy in vulnerability classification.</li>
-                    <li>Implemented automated remediation suggestion system with context-aware security recommendations.</li>
-                    <li>Created dynamic report generation system with customizable templates and interactive dashboards.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">LangChain</span>
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">LLM & Gemini</span>
-                    <span class="tech-tag">Streamlit</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Startup Documentation Generator</h3>
-                <p>An intelligent platform that automates the creation of all essential documents for startups.</p>
-                <ul>
-                    <li>Designed effective LangChain-powered sequential chains for document generation.</li>
-                    <li>Automated creation of project plans, funding proposals, pitch decks, and investor documentation.</li>
-                    <li>Streamlined UI with Streamlit, ensuring simplicity and efficiency.</li>
-                    <li>Integrated Gemini AI for accurate and context-aware document generation.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">LangChain</span>
-                    <span class="tech-tag">Streamlit</span>
-                    <span class="tech-tag">LLM & Gemini</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>AtmaVeda AI Platform</h3>
-                <p>Innovative AI system for analyzing and interpreting ancient Indian spiritual texts with advanced security measures.</p>
-                <ul>
-                    <li>Developed custom VedaGPT model with 89% accuracy in Sanskrit text interpretation.</li>
-                    <li>Implemented secure multi-factor authentication and encryption for sensitive content.</li>
-                    <li>Created real-time translation engine supporting 10+ Indian languages.</li>
-                    <li>Designed scalable microservices architecture handling 10,000+ daily queries.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Vercel</span>
-                    <span class="tech-tag">JWT</span>
-                    <span class="tech-tag">LLM & NLP</span>
-                    <span class="tech-tag">Streamlit</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>OxSecure Intelligence Platform</h3>
-                <p>Comprehensive cybersecurity suite integrating AI-powered tools for advanced threat detection and response.</p>
-                <ul>
-                    <li>Developed <strong>OxScanner</strong>: Automated network security analysis tool with 99.9% uptime.</li>
-                    <li>Engineered <strong>OxRAG</strong>: Advanced report automation system for security documentation.</li>
-                    <li>Built <strong>OxIntell</strong>: AI-powered secure coding guidance and threat analysis platform.</li>
-                    <li>Created <strong>OxImagen</strong>: AI-driven vulnerability imaging and visualization tool.</li>
-                    <li>Implemented intelligent, automated threat hunting workflows with real-time response capabilities.</li>
-                    <li>Achieved scalability and efficiency using cloud-native architecture on AWS.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Gemini API</span>
-                    <span class="tech-tag">LangChain</span>
-                    <span class="tech-tag">Streamlit</span>
-                    <span class="tech-tag">HuggingFace</span>
-                    <span class="tech-tag">FAISS</span>
-                    <span class="tech-tag">AWS</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Symphonic: AI for Literary Arts</h3>
-                <p>An advanced natural language processing platform designed specifically for literature enthusiasts, enabling users to generate personalized verses, poems, and prose across diverse genres and styles.</p>
-                <ul>
-                    <li>Empowered users to create literary pieces in various genres, from romantic poetry to thought-provoking prose.</li>
-                    <li>Integrated multilingual capabilities, supporting all regional Indian languages for wider accessibility and cultural resonance.</li>
-                    <li>Implemented seamless text-to-speech conversion, transforming written literary works into expressive audio formats.</li>
-                    <li>Utilized the full potential of Gemini's multimodal capabilities to ensure high-quality and immersive literary outputs.</li>
-                    <li>Designed a minimalistic yet effective UI for intuitive user interaction, making creative expression effortless.</li>
-                    <li>Incorporated advanced plagiarism detection and originality scoring to maintain the uniqueness of generated content.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">LangChain</span>
-                    <span class="tech-tag">Gemini API</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">GTTS</span>
-                    <span class="tech-tag">Streamlit</span>
-                    <span class="tech-tag">Google AI</span>
-                </div>
-            </div>
-        </section>
+<!-- Solution Slide -->
+<section data-background="https://images.unsplash.com/photo-1605790479112-7c2fea9f56f1?auto=format&fit=crop&w=1950">
+  <div style="background: rgba(0,0,0,0.7); padding: 20px;">
+    <h2 class="slide-title">AI Defense Matrix</h2>
+    <ul>
+      <li>LLM-Driven Threat Prediction</li>
+      <li>Autonomous Patching System</li>
+      <li>PTTAS Security Kernel</li>
+    </ul>
+  </div>
+  <p class="slide-description">Explore our innovative AI-driven solutions designed to preemptively tackle cyber threats at their source.</p>
+</section>
 
-        <section>
-            <h2>Certifications</h2>
-            <div class="card">
-                <ul>
-                    <li>Google Cloud Cybersecurity Professional (2024)</li>
-                    <li>EC-Council Ethical Hacker Essentials (2023)</li>
-                    <li>EC-Council Network Defense Specialist (2023)</li>
-                    <li>EC-Council Digital Forensics Expert (2023)</li>
-                    <li>Advanced Malware Analysis Certification (2023)</li>
-                </ul>
-            </div>
-        </section>
+<!-- Market Slide -->
+<section>
+  <h2 class="slide-title">₹7,200Cr Indian Cybersecurity Market</h2>
+  <div class="chart-container">
+    <canvas id="marketChart"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById('marketChart'), {
+      type: 'line',
+      data: {
+        labels: ['2021', '2022', '2023', '2024'],
+        datasets: [{
+          label: 'Market Size (₹ Cr)',
+          data: [4200, 5500, 7200, 9400],
+          borderColor: '#00ff9d'
+        }]
+      },
+      options: { legend: { display: false } }
+    });
+  </script>
+  <p class="slide-description">Discover the vast potential of the Indian cybersecurity market, projected to grow significantly, positioning OxSecure for success.</p>
+</section>
 
-        <section>
-            <h2>Education</h2>
-            <div class="card">
-                <h3>Bachelor of Computer Applications</h3>
-                <p><strong>IGNOU | New Delhi | 2025 (Ongoing)</strong></p>
-                <p>Specialization in Cybersecurity and AI Applications</p>
-            </div>
-            <div class="card">
-                <h3>Bachelor of Arts</h3>
-                <p><strong>Deen Dayal University | Gorakhpur | 2024</strong></p>
-                <p>CGPA: 8.2 | Focus on Ancient History and Civilizations</p>
-            </div>
-        </section>
+<!-- MVP Traction -->
+<section>
+  <h2 class="slide-title">MVP Validation</h2>
+  <div class="chart-container">
+    <canvas id="mvpChart"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById('mvpChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Threats Neutralized', 'Patches Deployed', 'Incidents Prevented'],
+        datasets: [{
+          data: [106, 82, 34],
+          backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe']
+        }]
+      },
+      options: { legend: { position: 'bottom' } }
+    });
+  </script>
+  <p class="slide-description">Our Minimum Viable Product has already shown promising results in real-world scenarios, proving our concept's effectiveness.</p>
+</section>
+
+<!-- Technology Stack -->
+<section>
+  <h2 class="slide-title">AI Architecture</h2>
+  <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=1950" 
+       style="height: 400px;">
+  <ul>
+    <li>NLP-Driven Threat Analysis</li>
+    <li>Reinforcement Learning Bots</li>
+    <li>Blockchain-Enhanced Security Kernel</li>
+  </ul>
+  <p class="slide-description">Dive into the technical backbone of OxSecure, showcasing our cutting-edge technology stack.</p>
+</section>
+
+<!-- Business Model -->
+<section>
+  <h2 class="slide-title">Revenue Projections</h2>
+  <div class="chart-container">
+    <canvas id="revenueChart"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById('revenueChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Year 1', 'Year 2', 'Year 3'],
+        datasets: [{
+          label: 'ARR (₹ Cr)',
+          data: [1.2, 8.5, 22.3],
+          backgroundColor: '#00ff9d'
+        }]
+      },
+      options: { legend: { display: false } }
+    });
+  </script>
+  <p class="slide-description">See our conservative yet ambitious revenue projections that reflect our growth strategy and market understanding.</p>
+</section>
+
+<!-- Funding Allocation -->
+<section>
+  <h2 class="slide-title">Fund Utilization</h2>
+  <div class="chart-container">
+    <canvas id="fundingChart"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById('fundingChart'), {
+      type: 'pie',
+      data: {
+        labels: ['R&D', 'Talent', 'Marketing', 'Infra'],
+        datasets: [{
+          data: [40, 35, 15, 10],
+          backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#00ff9d']
+        }]
+      }
+    });
+  </script>
+  <p class="slide-description">Understand how we plan to allocate the seed funding to drive growth, innovation, and market penetration.</p>
+</section>
+
+<!-- Team Slide -->
+<section>
+  <h2 class="slide-title">Core Team</h2>
+  <div class="competitor-matrix">
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/tech/1.jpg" alt="CTO">
+      <h4>Dr. Anika Rao</h4>
+      <p>AI Security Expert (IIT Bombay)</p>
     </div>
-    <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 100 },
-                color: { value: ['#00ff88', '#00b8ff', '#ff2e63'] },
-                shape: { type: 'circle' },
-                opacity: { value: 0.9, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: '#00ff88', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 3, direction: 'none', random: true, straight: false, out_mode: 'bounce' }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'bubble' },
-                    onclick: { enable: true, mode: 'push' }
-                }
-            }
-        });
-    </script>
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/tech/2.jpg" alt="CEO">
+      <h4>Rahul Verma</h4>
+      <p>Serial Cybersecurity Entrepreneur</p>
+    </div>
+  </div>
+  <p class="slide-description">Meet the seasoned professionals leading OxSecure, combining deep tech expertise with entrepreneurial acumen.</p>
+</section>
+
+<!-- Closing Slide -->
+<section data-background="https://images.unsplash.com/photo-1573165231970-f7a3a0a2f85a?auto=format&fit=crop&w=1950">
+  <div style="background: rgba(0,0,0,0.7); padding: 20px;">
+    <h1>Secure Tomorrow's Digital Frontier</h1>
+    <p>Contact: contact@oxsecure.in</p>
+    <p>Valuation: ₹90 Crore | 18% Equity Offering</p>
+  </div>
+  <p class="slide-description">Join us in shaping the future of cybersecurity. Here's how you can get involved and our contact details for further discussions.</p>
+</section>
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    center: true,
+    hash: true,
+    transition: 'slide'
+  });
+</script>
 </body>
 </html>
