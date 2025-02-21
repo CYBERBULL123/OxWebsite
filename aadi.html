@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Tailwind CSS for Team Slide styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Fullscreen and basic resets */
     html, body {
@@ -45,6 +43,8 @@
     }
     .arch-image {
       height: 300px;
+      align-items: center;
+      align-content: center;
     }
     .arch-image:hover {
       transform: scale(2.1);
@@ -52,7 +52,7 @@
     /* Grid layout for team members */
     .competitor-matrix {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       margin: 20px 0;
     }
@@ -219,13 +219,23 @@
     <!-- MVP Traction Slide -->
     <section>
       <h2 class="slide-title">MVP Validation</h2>
-      <div class="chart-container">
-        <canvas id="mvpChart"></canvas>
+      <div class="chart-grid">
+        <div class="chart-container">
+          <canvas id="mvpChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="userChart"></canvas>
+        </div>
       </div>
       <p style="color: #fff; margin-top: 20px;">
         Our MVP has successfully neutralized 106 threats, deployed 82 patches, and prevented 34 security incidents, demonstrating the efficacy of our AI-driven approach in real-world scenarios.
       </p>
+      <p style="color: #fff; margin-top: 20px;">
+        We gained initial traction with 106 users worldwide, with 46 from India, 42 from Europe and America, 6 from Denmark, and 12 from Sydney, showcasing early global interest and engagement.
+      </p>
+
       <script>
+        // MVP Performance Metrics Chart
         new Chart(document.getElementById('mvpChart'), {
           type: 'doughnut',
           data: {
@@ -242,11 +252,43 @@
             }
           }
         });
+
+        // User Interaction Chart
+        new Chart(document.getElementById('userChart'), {
+          type: 'pie',
+          data: {
+            labels: ['India', 'Europe & America', 'Denmark', 'Sydney'],
+            datasets: [{
+              data: [46, 42, 6, 12],
+              backgroundColor: ['#ff9f40', '#4bc0c0', '#9966ff', '#ffcd56']
+            }]
+          },
+          options: {
+            plugins: {
+              title: { display: true, text: 'User Interaction by Region', color: '#fff' },
+              legend: { position: 'bottom', labels: { color: '#fff' } }
+            }
+          }
+        });
       </script>
+
       <p class="slide-description">
         Our Minimum Viable Product has shown promising results, validating our technology with real-world metrics, proving its effectiveness in mitigating risks and safeguarding assets.
       </p>
     </section>
+
+    <style>
+      /* Grid layout for side-by-side charts */
+      .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+      }
+    </style>
+
 
     <!-- AI Architecture Slide -->
     <section>
@@ -338,7 +380,7 @@
       <div class="competitor-matrix">
         <div class="team-member">
           <img src="imgs/ad.png" alt="Founder & CEO" onclick="showFullScreen(this)">
-          <h4>Aditya Pandey</h4>
+          <h6>Aditya Pandey</h6>
           <p>Founder & CEO – Cybersecurity Visionary</p>
           <!-- <p>
             Visionary leader driving OxSecure's strategic direction. Expert in Agentic LLM Engineering, Deep Learning Architect, and Cybersecurity Innovator. Architect of advanced AI pipelines with a focus on secure deployment.
@@ -346,7 +388,7 @@
         </div>
         <div class="team-member">
           <img src="imgs/sd.png" alt="Co-Founder" onclick="showFullScreen(this)">
-          <h4>Shivam Dwivedi</h4>
+          <h6>Shivam Dwivedi</h6>
           <p>CloudOps & Co-Founder – Tech Innovator</p>
           <!-- <p>
             Specialist in Multi-Cloud Architecture, DevOps Automation, and SRE-MLOps. Leads the design of scalable cloud solutions and microservices architecture, ensuring high availability and reliability.
@@ -354,7 +396,7 @@
         </div>
         <div class="team-member">
           <img src="imgs/nb.png" alt="Co-Founder" onclick="showFullScreen(this)">
-          <h4>Nabaranjan Palatasingh</h4>
+          <h6>Nabaranjan Palatasingh</h6>
           <p>Co-Founder & Lead ML Engineer</p>
           <!-- <p>
             ML Engineer with deep expertise in AI model development, risk management, and threat intelligence. Leads research and development of advanced ML algorithms for cybersecurity solutions.
@@ -362,12 +404,13 @@
         </div>
         <div class="team-member">
           <img src="imgs/nk.jpg" alt="Java Developer" onclick="showFullScreen(this)">
-          <h4>Neeraj Kumar</h4>
+          <h6>Neeraj Kumar</h6>
           <p>Java Developer Backend</p>
+        </div>
       </div>
-      <p class="slide-description">
-        Our leadership team combines deep technical expertise with robust market insights, positioning OxSecure as a future market leader, led by experienced professionals in AI and cybersecurity.
-      </p>
+        <p class="slide-description">
+          Our leadership team combines deep technical expertise with robust market insights, positioning OxSecure as a future market leader, led by experienced professionals in AI and cybersecurity.
+        </p>
     </section>
 
     <!-- Closing Slide -->
