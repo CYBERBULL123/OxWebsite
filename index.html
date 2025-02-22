@@ -391,64 +391,77 @@
   
 
   <!-- Architecture Section -->
-  <section id="architecture" class="py-20 bg-gray-900 fade-in-up">
-    <div class="container mx-auto w-11/12">
-      <h2 class="text-3xl font-bold text-center mb-8">
-        <i class="fas fa-network-wired mr-2"></i>OxSecure Multi-Cloud AISecOps Architecture
-      </h2>
-      <p class="text-center mb-8 max-w-2xl mx-auto">
-        Below is our multi-cloud AISecOps architecture with AI/ML integration. It highlights how data flows across multiple layers—threat intelligence, scanning, patching, and incident response—to provide real-time, end-to-end security.
-      </p>
-      <div class="text-center">
-        <a href="imgs/arch ox.png" target="_blank">
-          <img src="imgs/arch ox.png" alt="OxSecure Multi-Cloud AISecOps Architecture" class="mx-auto rounded-lg shadow-lg w-full max-w-4xl" />
-        </a>
+    <section id="architecture" class="py-20 bg-gray-900 fade-in-up">
+      <div class="container mx-auto w-11/12">
+        <h2 class="text-3xl font-bold text-center mb-8">
+          <i class="fas fa-network-wired mr-2"></i>OxSecure Multi-Cloud AISecOps Architecture
+        </h2>
+        <p class="text-center mb-8 max-w-2xl mx-auto">
+          Below is our multi-cloud AISecOps architecture with AI/ML integration. It highlights how data flows across multiple layers—threat intelligence, scanning, patching, and incident response—to provide real-time, end-to-end security.
+        </p>
+        <div class="text-center">
+          <a href="imgs/arch ox.png" target="_blank">
+            <img src="imgs/arch ox.png" alt="OxSecure Multi-Cloud AISecOps Architecture" class="mx-auto rounded-lg shadow-lg w-full max-w-4xl" />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Ecosystem Section -->
-  <section id="ecosystem" class="py-20 bg-gray-800 fade-in-up">
-    <div class="container mx-auto w-11/12">
-      <h2 class="text-3xl font-bold text-center mb-8">
-        <i class="fas fa-cubes mr-2"></i>The OxSecure Ecosystem
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-        <div class="p-6 bg-gray-700 rounded-lg hover-scale">
-          <h3 class="text-xl font-bold mb-4">
-            <i class="fas fa-brain mr-2"></i>OxIntell
-          </h3>
-          <p>AI-driven threat detection and code audits.</p>
+      <section id="architecture" class="py-20 bg-gray-800 fade-in-up">
+        <div class="container mx-auto w-11/12">
+          <h2 class="text-3xl font-bold text-center mb-8">
+            <i class="fas fa-network-wired mr-2"></i>OxSecure Intelligence Architecture
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Frontend & Visualization Layer -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">Frontend & Visualization Layer</h3>
+              <p>Interactive dashboards, data visualizations, and security monitoring interfaces.</p>
+            </div>
+            <!-- Backend Orchestration & Security Layer -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">Backend Orchestration & Security Layer</h3>
+              <p>Dynamic backend services, real-time caching, and database interactions.</p>
+            </div>
+            <!-- Cloud Infrastructure & DevOps Layer -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">Cloud Infrastructure & DevOps Layer</h3>
+              <p>Multi-cloud deployments, container orchestration, CI/CD pipelines, and monitoring.</p>
+            </div>
+            <!-- Data Ingestion & Processing Layer -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">Data Ingestion & Processing Layer</h3>
+              <p>Log collection, threat intelligence feeds, and real-time stream processing.</p>
+            </div>
+            <!-- User Devices & Endpoints -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">User Devices & Endpoints</h3>
+              <p>Cloud endpoints, system endpoints, and data server interactions for security analysis.</p>
+            </div>
+            <!-- AI/ML Analytics Layer -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">AI/ML Analytics Layer</h3>
+              <p>Anomaly detection, deep learning models, and LLM-driven AI insights generation.</p>
+            </div>
+            <!-- PTaaS & Security Kernel -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">PTaaS & Security Kernel</h3>
+              <p>Automated penetration testing, security kernel integration, and vulnerability management.</p>
+            </div>
+            <!-- AGI Core (Self-Learning) -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">AGI Core (Self-Learning)</h3>
+              <p>Dynamic knowledge graph, self-optimization, and cognitive feedback loop.</p>
+            </div>
+            <!-- Security Automation & Incident Response -->
+            <div class="p-6 bg-gray-700 rounded-lg hover-scale">
+              <h3 class="text-xl font-bold mb-4">Security Automation & Incident Response</h3>
+              <p>Automated remediation, SOAR integration, and playbook execution for incident response.</p>
+            </div>
+          </div>
         </div>
-        <div class="p-6 bg-gray-700 rounded-lg hover-scale">
-          <h3 class="text-xl font-bold mb-4">
-            <i class="fas fa-search mr-2"></i>OxRAG
-          </h3>
-          <p>Retrieval-augmented insights for unstructured data.</p>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg hover-scale">
-          <h3 class="text-xl font-bold mb-4">
-            <i class="fas fa-robot mr-2"></i>OxImaGen
-          </h3>
-          <p>Generative AI for threat simulation and comprehensive reports.</p>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg hover-scale">
-          <h3 class="text-xl font-bold mb-4">
-            <i class="fas fa-network-wired mr-2"></i>OxScanner
-          </h3>
-          <p>Network security with AI-powered IDS for real-time intrusion detection.</p>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg hover-scale">
-          <h3 class="text-xl font-bold mb-4">
-            <i class="fas fa-shield-virus mr-2"></i>AD_VulnxAI
-          </h3>
-          <p>
-            Advanced vulnerability analysis with integrated AI for automated patching, risk scoring, and continuous compliance checks.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
+    
 
       <!-- Architecture Workflow Outline -->
       <div class="mt-12 p-6 bg-gray-700 rounded-lg w-11/12 mx-auto">
