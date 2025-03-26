@@ -584,7 +584,7 @@
       <h2 class="text-4xl font-bold text-center text-white mb-12">
         <i class="fas fa-users mr-2 text-blue-500"></i>Meet the Team
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <!-- Team Member 1 -->
         <div class="bg-gray-800 rounded-xl p-6 text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <img src="imgs/ad.png" alt="Aditya Pandey" class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-blue-500">
@@ -614,15 +614,6 @@
           <p class="text-blue-400 text-sm">Co-Founder & Lead ML Engineer</p>
           <p class="mt-3 text-gray-400 text-sm leading-relaxed">
             ML Engineer with deep expertise in AI model development, risk management, and threat intelligence. Leads research and development of advanced ML algorithms for cybersecurity solutions.
-          </p>
-        </div>
-        <!-- Team Member 4 -->
-        <div class="bg-gray-800 rounded-xl p-6 text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-          <img src="imgs/nk.jpg" alt="Neeraj Kumar" class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-blue-500">
-          <h4 class="text-2xl font-semibold text-white">Neeraj Kumar</h4>
-          <p class="text-blue-400 text-sm">Backend Engineer & Security Specialist</p>
-          <p class="mt-3 text-gray-400 text-sm leading-relaxed">
-            Expert in Core Java, Backend Development, and Security Protocols. Builds secure and efficient backend systems, ensuring data integrity and robust application security.
           </p>
         </div>
       </div>
@@ -661,10 +652,11 @@
             <textarea class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
           </div>
-          <button type="button" onclick="sendEmail()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
             Send Message
           </button>
         </form>
+        <div id="formMessage" class="mt-4 text-center hidden"></div>
       </div>
     </div>
   </section>
@@ -947,17 +939,87 @@
       }
     });
 
-    function sendEmail() {
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var template = document.getElementById("template").value;
-      var message = document.getElementById("message").value;
-
-      var subject = encodeURIComponent(template + " - " + name);
-      var body = encodeURIComponent("Hello,\n\n" + message + "\n\nBest Regards,\n" + name + "\n" + email);
-
-      window.location.href = "mailto:opaadi98@gmail.com?subject=" + subject + "&body=" + body;
+    // Email validation function
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
     }
+
+    // Show message function with Tailwind classes
+    function showMessage(text, type) {
+      const formMessage = document.getElementById('formMessage');
+      formMessage.textContent = text;
+      formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
+      if (type === 'success') {
+        formMessage.classList.add('text-green-500');
+      } else {
+        formMessage.classList.add('text-red-500');
+      }
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
+    }
+
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const template = document.getElementById('template').value;
+      const message = document.getElementById('message').value;
+
+      // Validate email
+      if (!isValidEmail(email)) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // Prepare data
+      const formData = { name, email, template, message };
+
+      // Show loading state
+      const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Replace with your Google Apps Script Web App URL
+      const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+      // Send data
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Server error: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.status === 'success') {
+          showMessage('Message sent successfully!', 'success');
+          document.getElementById('contactForm').reset();
+        } else {
+          showMessage('Error: ' + data.message, 'error');
+        }
+      })
+      .catch(error => {
+        let errorMessage = 'An error occurred. Please try again later.';
+        if (error.message.includes('Failed to fetch')) {
+          errorMessage = 'Network error. Please check your internet connection.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+        showMessage('Error: ' + errorMessage, 'error');
+      })
+      .finally(() => {
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      });
+    });
   </script>
 </body>
 </html>
