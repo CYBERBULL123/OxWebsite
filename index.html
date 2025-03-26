@@ -939,85 +939,31 @@
       }
     });
 
-    // Email validation function
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    // Show message function with Tailwind classes
-    function showMessage(text, type) {
-      const formMessage = document.getElementById('formMessage');
-      formMessage.textContent = text;
-      formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
-      if (type === 'success') {
-        formMessage.classList.add('text-green-500');
-      } else {
-        formMessage.classList.add('text-red-500');
-      }
-      setTimeout(() => {
-        formMessage.classList.add('hidden');
-      }, 5000);
-    }
-
-    // Form submission handler
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+      e.preventDefault(); // Stop the form from refreshing the page
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const template = document.getElementById('template').value;
-      const message = document.getElementById('message').value;
+      // Get the form data
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        template: document.getElementById('template').value,
+        message: document.getElementById('message').value
+      };
 
-      // Validate email
-      if (!isValidEmail(email)) {
-        showMessage('Please enter a valid email address.', 'error');
-        return;
-      }
+      // Replace this with your Google Apps Script Web App URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwtx3afY9TDSVZQuH7w8GR9jyzRN1fZujgK14lxyGVxJtJer9oYxHd2IlyJ6-xGQywgnQ/exec';
 
-      // Prepare data
-      const formData = { name, email, template, message };
-
-      // Show loading state
-      const submitBtn = document.querySelector('#contactForm button[type="submit"]');
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-
-      // Replace with your Google Apps Script Web App URL
-      const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-
-      // Send data
+      // Send the data
       fetch(scriptURL, {
         method: 'POST',
-        body: JSON.stringify(formData),
-        headers: { 'Content-Type': 'application/json' }
+        body: JSON.stringify(formData)
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Server error: ' + response.status);
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.status === 'success') {
-          showMessage('Message sent successfully!', 'success');
-          document.getElementById('contactForm').reset();
-        } else {
-          showMessage('Error: ' + data.message, 'error');
-        }
-      })
-      .catch(error => {
-        let errorMessage = 'An error occurred. Please try again later.';
-        if (error.message.includes('Failed to fetch')) {
-          errorMessage = 'Network error. Please check your internet connection.';
-        } else if (error.message) {
-          errorMessage = error.message;
-        }
-        showMessage('Error: ' + errorMessage, 'error');
-      })
-      .finally(() => {
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
+      .then(() => {
+        // Show success message and reset the form
+        document.getElementById('formMessage').textContent = 'Message sent successfully!';
+        document.getElementById('formMessage').style.color = 'green';
+        document.getElementById('formMessage').classList.remove('hidden');
+        document.getElementById('contactForm').reset();
       });
     });
   </script>
